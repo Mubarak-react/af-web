@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* 1st Screenshot Custom Ambient Lights Background */
+.page-container {
+  min-height: 100vh;
+  color: #ffffff;
+  padding: 60px 5%;
+  background-color: #000000;
+  /* Ambient glow logic recreating image 1 */
+  background-image: 
+    radial-gradient(circle at 25% 20%, rgba(94, 23, 132, 0.45) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(0, 115, 126, 0.45) 0%, transparent 45%),
+    radial-gradient(circle at 40% 90%, rgba(150, 5, 80, 0.4) 0%, transparent 50%);
+  background-attachment: fixed; /* Background standard fixed position height setup */
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/* Hero Content styling */
+.hero-section {
+  text-align: center;
+  max-width: 850px;
+  margin: 40px auto 80px auto;
+}
+
+.small-tag {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #a5a6f6;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.gradient-text {
+  color: #7175f7;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #b0b3c6;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Responsive Grid layout for 3rd screenshot */
+.grid-section {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+}
+
+.info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Glassmorphism utility for transparent look */
+
+
+/* Input Fields UI Elements */
+.form-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #8c8f9f;
+  margin-bottom: 10px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  background: rgba(30, 30, 46, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Sub-card utilities */
+.info-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-item .icon {
+  font-size: 20px;
+  color: #7175f7;
+}
+
+.info-item h3 {
+  font-size: 15px;
+  color: #7175f7;
+  margin-bottom: 6px;
+}
+
+.info-item p {
+  font-size: 14px;
+  color: #b0b3c6;
+  line-height: 1.5;
+}
+
+/* Mock Map styling styled in map context */
+.map-card {
+  padding: 0;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  background-image: url('../assets/images/MapsImg.svg');
+
+  padding: 20px;
+}
+
+.map-link {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #8c8f9f;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- 4th Screenshot Card Implementation --- */
+.skip-section {
+  max-width: 1200px;
+  margin: 60px auto 40px auto;
+}
+
+.custom-skip-card {
+  border-radius: 40px;
+  padding: 60px 0px 0px 0px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  
+  /* Adiginattu dynamic values colors apply chesam */
+  background-color: transparent; 
+  background-image: 
+    linear-gradient(135deg, #BEC2FF33 0%, transparent 25%),
+    linear-gradient(315deg, #BEC2FF33 0%, transparent 25%);
+}
+
+.custom-skip-card h2 {
+  font-size: 2.2rem;
+  
+}
+
+.highlight-text {
+  color: #6366f1;
+}
+
+.custom-skip-card p {
+  color: #b0b3c6;
+  max-width: 600px;
+  margin: 0 auto 36px auto;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Button & Action controls */
+.action-btn {
+  background: linear-gradient(90deg, #5b5ff4 0%, #a832d7 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 16px 36px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+.glow-btn {
+  box-shadow: 0 0 20px rgba(91, 95, 244, 0.4);
+}
+
+.availability {
+  font-size: 12px;
+  color: #7c7e8c;
+}
+
+/* --- Mobile Responsiveness Setup --- */
+@media (max-width: 968px) {
+  .grid-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .page-container {
+    padding: 40px 16px;
+  }
+  .custom-skip-card {
+    padding: 40px 20px;
+  }
+}

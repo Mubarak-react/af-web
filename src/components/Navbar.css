@@ -1,0 +1,242 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(10, 10, 20, 0.4);
+  backdrop-filter: blur(12px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.35s ease;
+}
+
+.navbar.scrolled {
+  padding: 12px 40px;
+  background: rgba(8, 8, 16, 0.85);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-logo img {
+  height: 40px;
+
+   animation: spin 4s linear infinite;
+}
+
+
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.navbar-logo:hover img {
+  transform: rotate(8deg) scale(1.05);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active-link::after {
+  width: 100%;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active-link {
+  color: #8b5cf6;
+}
+
+.navbar-cta {
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.navbar-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.4);
+}
+
+/* Hamburger */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  width: 28px;
+  height: 22px;
+  z-index: 1100;
+}
+
+.navbar-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+.navbar-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    flex-direction: column;
+    background: rgba(10, 10, 20, 0.97);
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+  }
+
+  .navbar-links.active {
+    transform: translateX(0);
+  }
+
+  .navbar-links li {
+    opacity: 0;
+    animation: fadeSlideIn 0.4s ease forwards;
+  }
+
+  .navbar-links.active li {
+    opacity: 1;
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar-links a {
+    font-size: 18px;
+  }
+
+  .navbar-cta {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
+/* Custom Cal.com Modal Overlay */
+.cal-modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.85) !important; /* డార్క్ బ్యాక్‌గ్రౌండ్ బ్లర్ */
+  backdrop-filter: blur(8px);
+  z-index: 1000000 !important; /* అన్నిటికంటే టాప్ లేయర్ లో ఉంటుంది */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content Box */
+.cal-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  height: 85vh;
+  background: #0d0d12;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Close Button Design */
+.cal-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 18px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+  z-index: 1000001;
+}
+
+.cal-modal-close:hover {
+  background: #ef4444; /* Hover చేసినప్పుడు ఎరుపు రంగులోకి మారుతుంది */
+}
+
+/* Iframe adjustment */
+.cal-modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

@@ -1,0 +1,322 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* Main Wrapper Scope Reset */
+.training-layout-scope * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.training-layout-scope {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* -------------------------------------------
+   ORIGINAL FIXED STICKY BACKGROUND LAYER
+------------------------------------------- */
+.training-sticky-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/images/BGImage.svg'); /* Dynamic matching asset color backdrop */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+/* Page Frame Canvas bounds */
+.training-page-canvas {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section Heights standards */
+.training-viewport-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  width: 100%;
+}
+
+/* -------------------------------------------
+   SAME ACCURATE DARK TRANSLUCENT GLASS CARDS
+------------------------------------------- */
+.training-glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 32px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.training-glass-card:hover {
+  border-color: rgba(192, 132, 252, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Neon Gradient Styling Utility blocks */
+.text-neon-gradient {
+  background: linear-gradient(135deg, #C084FC 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #C084FC 0%, #3B82F6 100%);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.btn-secondary-outline {
+  background: rgba(24, 24, 27, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* -------------------------------------------
+   SECTION 1: HERO UNIQUE STRUCTURE
+------------------------------------------- */
+.hero-grid-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+
+.badge-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #c084fc;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.hero-main-h1 {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.hero-sub-p {
+  color: #a1a1aa;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 24px 0 32px 0;
+  font-weight: 300;
+}
+
+.flex-btn-wrap {
+  display: flex;
+  gap: 16px;
+}
+
+.cinematic-img-frame {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1.2 / 1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cinematic-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------
+   SECTION 2: MASTER EVERY FRAME LAYOUT
+------------------------------------------- */
+.section-headline-block {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 56px auto;
+}
+
+.section-headline-block h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.master-frame-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.grid-span-7 { grid-column: span 7; }
+.grid-span-5 { grid-column: span 5; }
+.grid-span-4 { grid-column: span 4; }
+.grid-span-8 { grid-column: span 8; }
+
+.embedded-preview-media {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.embedded-preview-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------
+   SECTION 3: HANDS-ON GEAR LAYOUT
+------------------------------------------- */
+.gear-split-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+  width: 100%;
+}
+
+.gear-media-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.gear-media-stack .square-media-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gear-media-stack .square-media-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gear-media-stack .wide-media-box {
+  grid-column: span 2;
+  width: 100%;
+  aspect-ratio: 1.8 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gear-media-stack .wide-media-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gear-list-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.gear-list-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.gear-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(192, 132, 252, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #C084FC;
+  font-size: 14px;
+}
+
+/* -------------------------------------------
+   SECTION 4: CALL TO ACTION CARD BOUNDS
+------------------------------------------- */
+.cta-box-center {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 56px;
+  text-align: center;
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.cta-box-center h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.cta-box-center p {
+  color: #a1a1aa;
+  max-width: 540px;
+  margin: 0 auto 32px auto;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* -------------------------------------------
+   RESPONSIVE DESIGN SCREEN BREAKPOINTS
+------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-grid-split, .gear-split-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .master-frame-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-main-h1 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 576px) {
+  .flex-btn-wrap {
+    flex-direction: column;
+  }
+  .flex-btn-wrap button {
+    width: 100%;
+  }
+}

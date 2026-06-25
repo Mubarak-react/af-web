@@ -1,0 +1,261 @@
+.portfolio-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  margin-top: 100px; /* మొబైల్ కోసం కొద్దిగా తగ్గించాం */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .portfolio-container {
+    margin-top: 150px;
+  }
+}
+
+.portfolio-content {
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+.visual-excellence {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #4b7bec;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .visual-excellence {
+    font-size: 14px;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+  }
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  background: linear-gradient(to right, #b085f5 0%, #5e92f3 50%, #4ba3e3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .main-title {
+    font-size: 4.5rem;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+  }
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaaaaa;
+  margin-bottom: 30px;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+}
+
+/* బటన్స్ రెస్పాన్సివ్ స్టైలింగ్ */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  overflow-x: auto; /* మొబైల్ లో బటన్స్ పక్కకి స్క్రోల్ అవ్వడానికి */
+  padding-bottom: 10px;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+}
+
+/* డెస్క్‌టాప్ లో బటన్స్ నార్మల్‌గా సెంటర్ అవ్వడానికి */
+@media (min-width: 768px) {
+  .button-group {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    white-space: normal;
+    padding-bottom: 0;
+  }
+}
+
+.btn-outline {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* స్క్రోల్ అయ్యేటప్పుడు సైజ్ తగ్గకుండా */
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: white;
+}
+
+/* గ్రిడ్ సెక్షన్ రెస్పాన్సివ్ */
+.grid-section-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .grid-section-container {
+    padding: 80px 20px;
+  }
+}
+
+/* మొబైల్ లో సింగిల్ కాలమ్, లార్జ్ స్క్రీన్స్ లో 4 కాలమ్స్ */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr); /* టాబ్లెట్స్ లో 2 కాలమ్స్ */
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: 450px 300px; /* డెస్క్‌టాప్ లో మీ పాత లేఅవుట్ */
+  }
+}
+
+.portfolio-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 350px; /* మొబైల్ లో కార్డ్స్ కి ఒక స్టాండర్డ్ హైట్ */
+}
+
+@media (min-width: 1024px) {
+  .portfolio-card {
+    height: auto; /* డెస్క్‌టాప్ లో గ్రిడ్ రో హైట్ తీసుకుంటుంది */
+  }
+}
+
+.portfolio-card-img-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.user-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .user-image {
+  transform: scale(1.06);
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(to top, rgba(10, 10, 14, 0.95) 0%, rgba(10, 10, 14, 0.4) 60%, transparent 100%);
+  z-index: 2;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 20px; 
+  left: 20px;
+  right: 20px; /* టెక్స్ట్ బయటకు వెళ్లకుండా */
+  color: white;
+  z-index: 3;
+}
+
+.taghead {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #b085f5;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.tagline-gradient-text {
+  font-size: 1.5rem;
+  margin: 5px 0;
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(to right, #C084FC, #3B82F6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; 
+}
+
+.overlay-text p {
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin: 5px 0 0 0;
+}
+
+/* డెస్క్‌టాప్ గ్రిడ్ పొజిషనింగ్ మాత్రమే */
+@media (min-width: 1024px) {
+  .card-tall {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .card-wide {
+    grid-column: 2 / 5;
+    grid-row: 1 / 2;
+  }
+
+  .card-standard {
+    grid-row: 2 / 3;
+  }
+}

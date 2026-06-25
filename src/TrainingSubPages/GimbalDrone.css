@@ -1,0 +1,838 @@
+/* Google Fonts - Plus Jakarta Sans */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: #030303;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Page Setup & Last Image Sticky Background implementation */
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Last image gradient shapes replicated in dynamic CSS (Sticky) */
+.sticky-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: #050508;
+  /* Replicating the exact multi-colored ambient light from your last image */
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(111, 27, 138, 0.45) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(14, 116, 122, 0.45) 0%, transparent 45%),
+    radial-gradient(circle at 40% 90%, rgba(162, 12, 92, 0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Content over the sticky background */
+.content-layer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* SECTION 1: HERO CONTAINER */
+.hero-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 900px;
+  width: 100%;
+}
+
+.tagline {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #bfa1f7;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.main-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+
+.blue-gradient-text {
+  background: linear-gradient(135deg, #7da2ff 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  color: #94a3b8;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 40px auto;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #a855f7 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* SECTION 2 & 3 HEADERS */
+.courses-section, .premium-section {
+  padding: 100px 4vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.courses-title-area, .premium-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.courses-title-area h2, .premium-header h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.courses-title-area p, .premium-header p {
+  color: #94a3b8;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* GRIDS AND CARDS DESIGN */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.course-card {
+  background: rgba(20, 20, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease;
+}
+
+.course-card:hover {
+  border-color: rgba(125, 162, 255, 0.3);
+}
+
+.card-img-placeholder {
+  height: 200px;
+  width: 100%;
+  background-color: #16161f;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Specific inner mock graphics matching images */
+.photography-bg {
+  background: linear-gradient(45deg, #111b15, #0a0d0a);
+}
+.text-overlay {
+  font-size: 16px;
+  font-weight: bold;
+  color: #8c7e53;
+  text-align: center;
+  padding: 20px;
+}
+.camera-gear-bg {
+  background: radial-gradient(circle, #22252a 10%, #0d0e12 80%);
+}
+.lens-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+.editing-bg {
+  background: #090e14;
+}
+.split-screen-preview {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(235, 140, 52, 0.2) 49%, #ef4444 50%, rgba(59, 130, 246, 0.2) 51%);
+}
+.drone-bg {
+  background: radial-gradient(circle, #1a1c23 0%, #0a0b0d 100%);
+}
+.drone-center-light {
+  width: 12px;
+  height: 12px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #10b981;
+}
+
+.card-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-info h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card-info p {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #6366f1;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  transition: color 0.2s;
+}
+
+.btn-link:hover {
+  color: #818cf8;
+}
+
+/* PREMIUM BUNDLE SECTION SPECIFIC */
+.premium-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+}
+
+.premium-card {
+  background: rgba(18, 18, 24, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.wide-card {
+  background-image: linear-gradient(to top, rgba(10, 10, 15, 0.95), rgba(10, 10, 15, 0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23ffffff" opacity="0.01" width="100" height="100"/></svg>');
+}
+
+.premium-card-content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+.purple-icon {
+  color: #a855f7;
+  margin-bottom: 20px;
+}
+
+.premium-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.premium-card p {
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE LAYOUTS (FULLY RESPONSIVE) */
+
+/* Tablets - Ipads */
+@media (max-width: 1024px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .premium-grid {
+    grid-template-columns: 1fr;
+  }
+  .premium-card {
+    min-height: 320px;
+    padding: 32px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 60px 16px;
+  }
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+  .courses-section, .premium-section {
+    padding: 60px 16px;
+  }
+}
+
+/* Container Background & Layout */
+.droneGimbalContainer {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Fully Responsive Grid Layout */
+.droneGimbalGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6-column base grid ఫ్లెక్సిబిలిటీ కోసం */
+  gap: 24px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Base Card Style */
+.droneGimbalCard {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 300px;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Hover Glow Effect */
+.droneGimbalCard:hover {
+  border-color: rgba(147, 51, 234, 0.4); /* Subtle purple glow */
+  transform: translateY(-4px);
+}
+
+/* --- Responsive Grid Spanning (Desktop & Large Screens) --- */
+.droneGimbalWide {
+  grid-column: span 4; /* పెద్ద కార్డ్స్ 6 కాలమ్స్‌లో 4 కాలమ్స్ స్పేస్ తీసుకుంటాయి */
+}
+
+.droneGimbalNormal {
+  grid-column: span 2; /* చిన్న కార్డ్స్ 2 కాలమ్స్ స్పేస్ తీసుకుంటాయి (ఆటోమేటిక్‌గా 4+2=6 అవుతుంది) */
+}
+
+/* Dark Gradient Overlay over the background images */
+.droneGimbalOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 16, 22, 0.3) 0%,
+    rgba(15, 16, 22, 0.75) 50%,
+    rgba(15, 16, 22, 0.98) 100%
+  );
+  z-index: 1;
+}
+
+/* Card Content Styling */
+.droneGimbalContent {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+}
+
+/* Icon Container */
+.droneGimbalIconArea {
+  margin-bottom: 16px;
+}
+
+.droneGimbalIcon {
+  font-size: 20px;
+  color: #a855f7; /* Violet/purple tone */
+  background: rgba(147, 51, 234, 0.15);
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Title Styling */
+.droneGimbalTitle {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+/* Description Styling */
+.droneGimbalDesc {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==================================================
+   MEDIA QUERIES (RESPONSIVENESS)
+   ================================================== */
+
+
+
+.features-section {
+  min-height: 80vh;
+  padding: 100px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gimbal-feature-section{
+
+  min-height: 80vh;
+  padding: 100px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.features-container {
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.feature-card {
+  background: rgba(10, 10, 12, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: left;
+}
+
+.icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.purple-bg {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+}
+
+.teal-bg {
+  background-color: rgba(45, 212, 191, 0.1);
+  color: #2dd4bf;
+}
+
+.feature-icon {
+  stroke-width: 1.5px;
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 14px;
+}
+
+.feature-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+/* --- SECTION 2: PRICING GRID --- */
+.pricing-section {
+  min-height: 100vh;
+  padding: 120px 4vw;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Pricing Intro (Left) */
+.pricing-intro {
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-intro-content {
+  max-width: 500px;
+}
+
+.cine-logo {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.bundle-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.bundle-features {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.bundle-features li {
+  font-size: 15px;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.check-icon {
+  color: #6366f1;
+}
+
+.pricing-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.original-price {
+  font-size: 18px;
+  color: #475569;
+  text-decoration: line-through;
+  margin-bottom: 6px;
+}
+
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.sale-price {
+  font-size: clamp(3rem, 7vw, 4.5rem);
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.payment-type {
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Pricing Detail Panel (Right) */
+.pricing-detail-panel {
+  background: rgba(10, 10, 12, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.enrollment-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.enrollment-tag {
+  background-color: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.limited-info {
+  margin-bottom: 30px;
+}
+
+.info-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+
+.info-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+.info-list {
+  margin-top: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.item-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: rgba(30, 41, 59, 0.6);
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.item-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+/* CTA Container & Button */
+.cta-container {
+  display: flex;
+  justify-content: flex-start; /* Alignment with left column text */
+  margin-top: 50px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Adjustment needed to align with left column since it's inside a grid */
+.cta-container {
+  margin-left: 0;
+  width: 1.2fr; /* matches left column proportion from grid */
+}
+
+.claim-seat-btn {
+  background: linear-gradient(90deg, #a855f7 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  width: 100%;
+  max-width: 500px;
+  padding: 16px 30px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.claim-seat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(168, 85, 247, 0.4);
+}
+
+/* --- RESPONSIVE LAYOUTS --- */
+
+/* Tablets - Ipads */
+@media (max-width: 1024px) {
+  .features-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .pricing-intro {
+    text-align: center;
+  }
+  .bundle-features li {
+    justify-content: center;
+  }
+  .pricing-intro-content {
+    max-width: 100%;
+  }
+  .cta-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    justify-content: center;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 640px) {
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+  .pricing-detail-panel {
+    padding: 25px;
+  }
+  .enrollment-wrapper {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .price-tag {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .payment-type {
+    margin-top: -8px;
+  }
+}
+
+/* 1. Tablets & Medium Screens (1024px and below) */
+@media (max-width: 1024px) {
+  .droneGimbalGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns లేఅవుట్‌గా మారిపోతుంది */
+    gap: 20px;
+  }
+  
+  .droneGimbalWide, .droneGimbalNormal {
+    grid-column: span 1; /* అన్ని కార్డ్స్ సమానంగా ఒకే సైజులోకి వస్తాయి */
+  }
+  
+  .droneGimbalCard {
+    height: 280px;
+  }
+}
+
+/* 2. Landscape Mobiles & Small Tablets (768px and below) */
+@media (max-width: 768px) {
+  .droneGimbalContainer {
+    padding: 40px 16px;
+  }
+  
+  .droneGimbalTitle {
+    font-size: 20px;
+  }
+  
+  .droneGimbalDesc {
+    font-size: 13.5px;
+  }
+}
+
+/* 3. Portrait Mobiles (480px and below) */
+@media (max-width: 480px) {
+  .droneGimbalGrid {
+    grid-template-columns: 1fr; /* సింగిల్ కాలమ్ లేఅవుట్ (కార్డ్ కింద కార్డ్ వస్తుంది) */
+    gap: 16px;
+  }
+  
+  .droneGimbalCard {
+    height: 260px; /* మొబైల్‌లో హైట్ కొద్దిగా తగ్గించాం */
+  }
+  
+  .droneGimbalContent {
+    padding: 20px; /* ఇన్నర్ ప్యాడింగ్ తగ్గించాం */
+  }
+}

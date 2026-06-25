@@ -1,0 +1,158 @@
+/* Section wrapper to handle full width stretch */
+.cta-slide-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+/* Main Content Box */
+.cta-wrapper-box {
+  max-width: 1280px;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  /* Fluid padding: scales dynamically between mobile and desktop sizes */
+  padding: clamp(40px, 8vw, 95px) clamp(20px, 6vw, 96px); 
+  box-sizing: border-box;
+  gap: 24px; 
+  position: relative;
+}
+
+/* Glassmorphism Card Style */
+.cta-glass-card {
+  backdrop-filter: blur(22px) saturate(120%);
+  -webkit-backdrop-filter: blur(22px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 40px; 
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease;
+  transform: translateY(-5px);
+  border-color: rgba(192, 132, 252, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Typography Fluid Scalings */
+.cta-headline-title {
+  color: #ffffff;
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.cta-headline-title span {
+  color: #3b82f6; 
+}
+
+.cta-sub-message {
+  color: #C6C5D7;
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 400;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Dynamic Buttons Container Row */
+.cta-actions-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Primary Button Action Link styling */
+.cta-btn-primary {
+  background: linear-gradient(90deg, #5142e6 0%, #8b31e3 100%);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Link/Border Button Styles */
+.cta-phone-link {
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px 32px;
+  border-radius: 50px; 
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.cta-phone-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cta-phone-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-secondary-btn {
+  font-family: inherit;
+}
+
+/* Extra Description Row Style Setup */
+.cta-sub-message2 {
+  color: #C6C5D7;
+  font-size: clamp(14px, 1.6vw, 16px);
+  font-weight: 400;
+  margin: 8px 0 0 0; 
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   MEDIA QUERY BREAKPOINTS FOR MAX MOBILE COMPATIBILITY
+   ========================================================================== */
+
+@media (max-width: 680px) {
+  .cta-actions-row {
+    flex-direction: column;
+    align-items: stretch; 
+  }
+
+  .cta-btn-primary,
+  .cta-phone-link {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .cta-wrapper-box {
+    border-radius: 24px; 
+    gap: 18px;
+  }
+}

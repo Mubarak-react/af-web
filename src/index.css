@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+
+
+/* ==========================================================================
+   Global Screen Constraints & Custom Engine Resets
+   ========================================================================== */
+/* 1. For Chrome, Safari, and Opera (వెబ్‌కిట్ బ్రౌజర్స్ లో పూర్తిగా దాచేయడానికి) */
+::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent; /* No tracking color at all */
+}
+
+/* 2. For IE, Edge, and Firefox (మిగతా అన్ని బ్రౌజర్స్ లో కూడా హైడ్ చేయడానికి) */
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+  overflow-y: scroll;        /* స్క్రోలింగ్ మాత్రం నడుస్తుంది కానీ బార్ కనిపించదు */
+}

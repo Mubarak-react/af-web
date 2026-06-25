@@ -1,0 +1,356 @@
+/* Base Styles */
+.cinecombo-page {
+  position: relative;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  background-color: #050505;
+  overflow-x: hidden;
+}
+
+/* Sticky Background - మీ లాస్ట్ ఇమేజ్ ఇక్కడ బ్యాక్‌గ్రౌండ్‌గా వస్తుంది */
+
+
+.sticky-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/images/BGImage.svg'); /* Dynamic matching asset color backdrop */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+
+/* Scrollable Content Wrapper */
+.scroll-section {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 4%;
+  box-sizing: border-box;
+}
+
+/* Glassmorphism Card Style */
+.photography-glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  transition: border 0.3s ease;
+}
+
+.photography-glass-card:hover {
+  border: 1px solid rgba(147, 51, 234, 0.3); /* Purple border on hover */
+}
+
+/* Typography & Colors */
+span {
+  color: #6366f1; /* Neon Blue/Purple mix */
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+
+.photography-wrapper {
+  background-color: #080711;
+  color: #ffffff;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Responsive Grid System */
+.photography-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  width: 100%;
+}
+
+/* Main Card Styling */
+.photography-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.3s ease;
+}
+
+.photography-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Specific Card Layout Positioning */
+.photography-mod-1 {
+  grid-column: span 2;
+  background: linear-gradient(145deg, rgba(140, 20, 60, 0.15) 0%, rgba(10, 30, 40, 0.2) 100%);
+}
+
+.photography-mod-2 {
+  grid-column: span 1;
+  background: linear-gradient(145deg, rgba(60, 15, 80, 0.2) 0%, rgba(15, 10, 35, 0.2) 100%);
+}
+
+.photography-mod-3 {
+  grid-column: span 1;
+  background: linear-gradient(145deg, rgba(10, 50, 60, 0.2) 0%, rgba(5, 25, 30, 0.2) 100%);
+}
+
+.photography-mod-4 {
+  grid-column: span 2;
+  background: linear-gradient(145deg, rgba(10, 45, 50, 0.15) 0%, rgba(10, 15, 25, 0.2) 100%);
+}
+
+/* Header & Tags */
+.photography-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.photography-module-tag {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Icons */
+.photography-icon {
+  width: 28px;
+  height: 28px;
+  color: #8b5cf6;
+  opacity: 0.8;
+}
+
+/* Titles and Typography */
+.photography-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.5px;
+}
+
+.photography-description {
+  font-size: 16px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Features Grid (Module 1 Layout) */
+.photography-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: auto;
+}
+
+.photography-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #cbd5e1;
+}
+
+.photography-check {
+  color: #6366f1;
+  font-weight: bold;
+}
+
+/* Sub Cards (Module 4 Layout) */
+.photography-sub-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: auto;
+}
+
+.photography-sub-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #e2e8f0;
+  transition: background 0.3s ease;
+}
+
+.photography-sub-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.photography-sub-icon {
+  width: 20px;
+  height: 20px;
+  color: #a855f7;
+  flex-shrink: 0;
+}
+
+/* Responsive Media Queries (Tablets & Mobiles) */
+
+/* Grids Setup */
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.cards-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.cards-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Utility Elements */
+.module-num {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.badge-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.cta-box {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+}
+
+.cta-meta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .curriculum-grid, .cards-grid-3, .cards-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .photography-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .photography-mod-1,
+  .photography-mod-2,
+  .photography-mod-3,
+  .photography-mod-4 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .photography-features-grid {
+    grid-template-columns: 1fr;
+  }
+  .photography-sub-cards-container {
+    grid-template-columns: 1fr;
+  }
+  .photography-title {
+    font-size: 26px;
+  }
+}
