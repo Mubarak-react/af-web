@@ -15,6 +15,14 @@
   display: block !important;
 }
 
+.home-hero-page-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  width: 100%;
+}
+
 .home-hero-image-wrapper {
   flex: 0.8;
   display: flex;
@@ -27,6 +35,8 @@
   margin-right:-100px ;
 }
 
+
+
 .slide-section {
   width: 100%;
   min-height: 100vh;
@@ -35,7 +45,15 @@
   justify-content: center;
   padding: 80px 24px; /* Optimized padding for better viewports */
   position: relative;
-  box-sizing: border-box;
+ 
+}
+
+.home-hero-page-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 20px;
+  width: 100%;
 }
 
 /* ==========================================
@@ -58,7 +76,10 @@
   background: rgba(255, 255, 255, 0.08);
   padding: 6px 16px;
   border-radius: 20px;
+  font-family: 'Inter';
   font-size: 12px;
+  font-weight: 700;
+  font-style: Bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   display: inline-block;
@@ -68,12 +89,23 @@
   color: #a855f7;
 }
 
-.hero-title { 
-  font-size: 3.5rem; 
-  font-weight: 700; 
-  line-height: 1.2; 
-  margin-bottom: 20px; 
+.home-page-second-heading{
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px;
+  color:#9CA3AF;
+  padding:0px 10px 0px 20px;
 }
+
+.hero-title { 
+  font-size: 20px; 
+  font-weight: 500; 
+  font-family: 'Inter';
+  margin-bottom: 20px; 
+  text-align: left !important;
+}
+
 
 .hero-title span { 
   color: #6366f1; 
@@ -101,9 +133,12 @@
 .btn-primary { 
   background: linear-gradient(90deg, #a855f7, #3b82f6); 
   color: white; 
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 16px;
   padding: 12px 28px; 
   border-radius: 8px; 
-  font-weight: 600; 
+ 
   border: none; 
   cursor: pointer; 
 }
@@ -112,8 +147,9 @@
   display: inline-block;
   padding: 12px 28px;
   background-color: transparent;
-  font-size: 1rem;
-  font-weight: 600;
+   font-family: 'Inter';
+  font-weight: 700;
+
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -129,7 +165,80 @@
   color: inherit;
   text-decoration: none;
 }
+/* Glassmorphic Container styling */
+.hero-glass-card-info {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  
+  /* Increased left padding slightly to accommodate the glowing bar */
+  padding: 24px 32px 24px 36px; 
+  
+  margin-top: 32px;
+  width: 95%;
+  box-sizing: border-box;
+  margin-left: 20px;
+  
+  /* Subtle glass outer borders */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: none; /* Left border is handled by pseudo-element */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
 
+
+
+
+/* Premium Left Glowing Border Effect */
+.hero-glass-card-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px; /* Border thickness */
+  height: 100%;
+  background: linear-gradient(
+    180deg, 
+    #a855f7 0%,    /* Neon Purple tint */
+    #6366f1 50%,   /* Indigo */
+    #22d3ee 100%   /* Electric Cyan tint */
+  );
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+}
+
+/* Paragraph Context Settings */
+.hero-paragraph-desc-glass {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  letter-spacing: 0.3px;
+  
+  /* FIX: Forces clean left alignment and prevents weird word spacing */
+  text-align: left; 
+  word-spacing: normal;
+}
+
+/* Optional: If you are using <span> or <strong> for bold text, 
+   ensure they don't add extra unwanted margins */
+.hero-paragraph-desc-glass strong,
+.hero-paragraph-desc-glass span {
+  font-weight: 600;
+  color: #ffffff; /* Makes bold text pop out neatly */
+}
+
+.home-heading{
+  margin-top: 30px;
+   font-size: 50px;
+   margin-bottom: 60px;
+
+
+
+}
 
 /* ==========================================
    Slide 2 - Stats Section
@@ -140,6 +249,7 @@
   gap: 30px; 
   max-width: 1200px; 
   width: 100%; 
+  margin-top: -230px;
   text-align: center; 
 }
 
@@ -161,7 +271,29 @@
    Slide 3 - Services Section
    ========================================== */
 .services-section { 
+  display: flex;
   flex-direction: column; 
+  align-items: center;    /* Section head & components ni horizontally center chestundi */
+  justify-content: center;
+  width: 100%;
+}
+.Our-Services-cards {
+  margin-top: -270px;
+  width: 100%;
+  max-width: 1200px;      /* Hero container range layout ki align chestundi */
+  margin-left: auto;      /* Left side gap fix mechanical alignment */
+  margin-right: auto;     /* Right side equal gap balancing */
+  min-height: 100vh;
+  padding: 80px 24px; 
+  position: relative;
+  
+  /* Flexbox layer optimization to center internal components/cards layout */
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-wrap: wrap;        /* Responsive device screens optimization automatically */
+  gap: 30px;              /* Individual card gaps correct maintain chestundi */
+  box-sizing: border-box;
 }
 
 .services-title {
@@ -187,25 +319,111 @@
   width: 100%; 
 }
 
-.service-card { 
-  background: rgba(255, 255, 255, 0.02); 
-  backdrop-filter: blur(12px); 
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08); 
-  padding: 40px 30px; 
-  border-radius: 16px; 
+
+.commercial-image-alignment{
+  height: 200px;
+  width: 100%;
+
 }
 
-.service-card h3 { 
+.meta-ad-container {
+  width: 100%; /* 110% badulu 100% pedithe card correct ga set avtundi */
+  max-width: 400px; /* Mee design batti width control cheskovachhu */
+  overflow: hidden; /* Image corners round ga cut avvadaniki */
+}
+
+.meta-ads-image {
+  height: 200px;
+  width: 100%;
+  
+  /* Image stretch avvakunda center align avvadaniki */
+  object-fit: cover; 
+  object-position: center; 
+  
+  /* Konchem zoom cheyadaniki (mee requirement batti scale value marchukondi) */
+  transform: scale(1.30); 
+}
+
+
+.our-ser-card{ 
+   backdrop-filter: blur(32px) saturate(150%);
+  -webkit-backdrop-filter: blur(32px) saturate(150%);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  border-radius: 30px; 
+  
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease;
+  transform: translateY(-5px);
+  border-color: rgba(192, 132, 252, 0.35);
+ background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.04) 0%, 
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.25), /* టాప్ ఎడ్జ్ లైట్ రిఫ్లెక్షన్ */
+    inset 0 10px 30px rgba(255, 255, 255, 0.03), /* ఇంటర్నల్ సాఫ్ట్ గ్లో */
+    0 20px 50px -10px rgba(0, 0, 0, 0.65); /* డార్క్ ఔటర్ డ్రాప్ షాడో */
+  
+  /* హోవర్ వద్దు అన్నారు కాబట్టి ట్రాన్స్‌ఫార్మ్స్, ట్రాన్సిషన్స్ తీసేసి స్టాటిక్‌గా సెట్ చేశాను */
+  position: relative;
+  overflow: hidden;
+  
+
+}
+
+.our-ser-card::before {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
+  top: -80px;
+  right: -80px;
+  z-index: 0;
+  pointer-events: none;
+}
+.our-ser-card h3 { 
   font-size: 1.4rem; 
-  margin: 20px 0 15px 0; 
+  margin: 20px 0 15px 10px; 
 }
 
-.service-card p { 
+.our-ser-card p { 
   color: #94a3b8; 
   font-size: 0.95rem; 
   line-height: 1.6; 
+  margin: 0px 10px 0px 10px;
 }
+
+.our-services-button {
+  background: rgba(255, 255, 255, 0.05); /* Slight tint for premium look */
+  border: none; 
+  padding: 15px 0px 20px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700; /* గ్రేడియంట్ బాగా కనిపించడానికి ఫాంట్ వెయిట్ కొంచెం పెంచాను */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; 
+  width: fit-content;
+  margin-top: auto; 
+  transition: all 0.3s ease;
+
+  /* 🔥 Linear Gradient Text Magic */
+  background-image: linear-gradient(135deg, #5865F2, #6F00BE);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+
+
+}
+
+
+
 
 .services-image {
   height: 56px;
@@ -216,7 +434,9 @@
    Slide 4 - Headline Sections
    ========================================== */
 .heading-only-section {
+  display: flex; /* Flexbox ని ఎనేబుల్ చెయ్యడానికి */
   flex-direction: column;
+  align-items: center; /* Elements అన్నింటినీ horizontally center చేస్తుంది */
   text-align: center;
   max-width: 1000px;
   margin: 0 auto;
@@ -231,6 +451,7 @@
 
 .leading-headline span {
   color: #6366f1;
+ 
 }
 
 .sub-brand-desc {
@@ -238,6 +459,8 @@
   color: #94a3b8;
   line-height: 1.8;
   max-width: 800px;
+  text-align: center;
+  margin: 0 auto; /* Paragraph box ని screen కి కరెక్ట్ గా center చేయడానికి */
 }
 
 /* ==========================================
@@ -249,20 +472,70 @@
   width: 100%;
   align-items: center;
   gap: 60px;
-}
-
+}/* Container - కేవలం ఇమేజ్ సైజ్ ని బాక్స్ లా ఉంచుతుంది */
 .about-image-wrapper {
-  flex: 1;
+  position: relative;
+  width: 100%;
+  max-width: 380px; /* నీ UI కార్డ్స్ హైట్ కి తగ్గట్టు దీన్ని అడ్జస్ట్ చేసుకో */
+  aspect-ratio: 1 / 1.5; /* పర్ఫెక్ట్ స్క్వేర్/బాక్స్ షేప్ కోసం */
+  border-radius: 24px; /* ఇమేజ్ కార్నర్స్ స్మూత్ గా రౌండ్ అవ్వడానికి */
+  overflow: hidden; /* గ్రేడియంట్ ని లెఫ్ట్ సైడ్ ఇమేజ్ లోపలే లాక్ చేస్తుంది */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* Image */
 .profile-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
   display: block;
 }
 
+/* Color Gradient Overlay - కరెక్ట్ గా నువ్వు అడిగిన ఇమేజ్ లో లాంటి షేడ్స్ */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%; /* ఇమేజ్ మిడిల్ నుండి బాటమ్ వరకు */
+  
+  /* లెఫ్ట్ సైడ్ బ్లూయిష్, రైట్ సైడ్ పర్పుల్-వైన్ కలర్ గ్రేడియంట్ బ్లెండ్ */
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0) 0%,       /* పైభాగం ట్రాన్స్‌పరెంట్ */
+    rgba(27, 48, 97, 0.85) 50%,    /* మిడిల్ లో బ్లూ షేడ్ */
+    rgba(77, 18, 55, 0.95) 100%    /* బాటమ్ లో పర్పుల్/వైన్ షేడ్ */
+  ) !important;
+  
+  display: flex;
+  align-items: flex-end;
+  padding: 30px 24px;
+  box-sizing: border-box;
+  z-index: 5 !important;
+}
+
+/* Founder Text Styling */
+.founder-info {
+  color: #ffffff;
+  font-family: 'Georgia', serif; /* నువ్వు అడిగిన ఇమేజ్ లో ఉన్న Serif ఫాంట్ స్టైల్ */
+  z-index: 6 !important;
+  width: 100%;
+}
+
+.founder-info h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.founder-info h2 {
+  margin: 5px 0 0 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
 .about-text-content {
   flex: 1.2;
   display: flex;
@@ -280,14 +553,52 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  margin-bottom: -30px;
 }
 
 .vision-box {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  
   padding: 25px;
-  border-radius: 12px;
+   position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  
+  /* Increased left padding slightly to accommodate the glowing bar */
+
+  
+
+  width: 95%;
+  box-sizing: border-box;
+  margin-left: 20px;
+  
+  /* Subtle glass outer borders */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: none; /* Left border is handled by pseudo-element */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+ 
 }
+
+.vision-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px; /* Border thickness */
+  height: 100%;
+  background: linear-gradient(
+    180deg, 
+    #a855f7 0%,    /* Neon Purple tint */
+    #6366f1 50%,   /* Indigo */
+    #22d3ee 100%   /* Electric Cyan tint */
+  );
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+  
+}
+
 
 .vision-box h4 {
   font-size: 1.15rem;
@@ -409,10 +720,43 @@
   justify-content: center;
   align-items: center;
   min-height: 140px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+
   border-radius: 12px;
+   position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  
+  /* Increased left padding slightly to accommodate the glowing bar */
+ 
+  
+  margin-top: 32px;
+  width: 95%;
+  box-sizing: border-box;
+  margin-left: 20px;
+  
+  /* Subtle glass outer borders */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: none; /* Left border is handled by pseudo-element */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
+
+
+.combo-stat-card::before {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
+  top: -80px;
+  right: -80px;
+  z-index: 0;
+  pointer-events: none;
+}
+
 
 .combo-stat-card h3 {
   font-size: 2.2rem;
@@ -687,7 +1031,20 @@
 
   .stats-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 25px;
+    margin-top: 50px;
+    margin-left: 3px;
+  }
+
+ .hero-glass-card-info {
+    width: auto;         /* Width ని ఆటోమేటిక్‌గా అడ్జస్ట్ చేస్తుంది */
+    margin-left: 16px;   /* లెఫ్ట్ సైడ్ ఈక్వల్ గ్యాప్ */
+    margin-right: 16px;  /* రైట్ సైడ్ ఈక్వల్ గ్యాప్ (ఇప్పుడు అస్సలు టచ్ అవ్వదు) */
+    padding: 20px 24px;  /* చిన్న స్క్రీన్స్ లోపల టెక్స్ట్ కి తగినట్టు ప్యాడింగ్ తగ్గించాం */
+  }
+
+  .Our-Services-cards{
+    margin-top: 50px;
   }
 
   .stat-item h2 {
@@ -727,3 +1084,5 @@
     font-size: 1rem;
   }
 }
+
+

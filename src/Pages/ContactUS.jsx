@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './ContactUS.css'
 import CTACards from '../components/CTAcards';
 import MapsImg from '../assets/images/MapsImg.svg'
+import Footer from '../footer/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -159,6 +160,8 @@ href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=VC+P
         description2='Available: Mon-Fri'
         
       />
+
+      <Footer/>
     </div>
   );
 };

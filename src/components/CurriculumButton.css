@@ -1,0 +1,86 @@
+/* Container Layout */
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* CineCombo Style Button */
+.enroll-btn {
+  background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%); /* Purple to Blue Gradient */
+  color: white;
+  border: none;
+  padding: 25px 40px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 250px;
+}
+
+.enroll-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}
+
+/* --- Fixed Popup Modal Overlay --- */
+.modal-overlay {
+  position: fixed; /* ఇది చాలా ఇంపార్టెంట్! బటన్ పక్కన కాకుండా స్క్రీన్ పైకి రావడానికి */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); /* వెనుక భాగం డార్క్ అవ్వడానికి */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* పేజీలో అన్నిటికంటే పైన ఉండాలి */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Modal Box */
+.modal-content {
+  position: relative;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #444;
+  max-width: 90%;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Popup Image */
+.modal-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Close Button (X) */
+.close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

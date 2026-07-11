@@ -2,12 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* Basic Component Architecture Resets */
-.training-root-container * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .training-root-container {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: #000000;
@@ -17,9 +11,7 @@
   width: 100%;
 }
 
-/* -------------------------------------------
-   FIXED STICKY BACKGROUND LAYER
-------------------------------------------- */
+/* FIXED STICKY BACKGROUND LAYER */
 .training-sticky-bg {
   position: fixed;
   top: 0;
@@ -50,73 +42,11 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 0;
+  padding: 80px 0;
   width: 100%;
 }
 
-/* -------------------------------------------
-   TRANSPARENT NEON GLASS CARDS UTILITIES
-------------------------------------------- */
-.transparent-glass-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 16px;
-  padding: 32px;
-  transition: border-color 0.3s ease, background 0.3s ease;
-}
-
-.transparent-glass-card:hover {
-  border-color: rgba(192, 132, 252, 0.35);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-/* Text & Button Color Gradient Modules */
-.neon-gradient-text {
-  background: linear-gradient(135deg, #C084FC 0%, #3B82F6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  font-weight: bolder;
-  font-size: 70px;
-}
-
-.action-gradient-btn {
-  background: linear-gradient(135deg, #C084FC 0%, #3B82F6 100%);
-  color: #ffffff;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-size: 14px;
-  transition: opacity 0.2s ease;
-}
-
-.action-gradient-btn:hover {
-  opacity: 0.9;
-}
-
-.secondary-outline-btn {
-  background: rgba(24, 24, 27, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.secondary-outline-btn:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* -------------------------------------------
-   SECTION LAYOUT SPECIFICS
-------------------------------------------- */
+/* Responsive Split Layout */
 .split-hero-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -152,17 +82,52 @@
 
 .btn-row-flex {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 
-/* Image Frame Wrapper components layout options */
+.action-gradient-btn {
+  background: linear-gradient(135deg, #C084FC 0%, #3B82F6 100%);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.action-gradient-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.secondary-outline-btn {
+  background: rgba(24, 24, 27, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-outline-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
 .cinematic-preview-frame {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 1.2 / 1;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 1.3 / 1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 .cinematic-preview-frame img {
@@ -177,6 +142,7 @@
   left: 24px;
   background: rgba(10, 10, 12, 0.75);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px 24px;
   border-radius: 12px;
@@ -185,152 +151,124 @@
   gap: 12px;
 }
 
-/* Program Rows Structures Grid setups */
 .program-row-title-block {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 48px;
   width: 100%;
+  gap: 24px;
 }
 
+/* Next Level Fluid Grid Implementation */
 .quad-cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* 240px నుండి 200px కి మార్చండి */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   gap: 20px;
   width: 100%;
 }
 
-.quad-cards-grid .transparent-glass-card {
-  padding: 28px;
+.transparent-glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
-/* Modules Section layout context block matrix tracking maps logic definitions template */
-.featured-modules-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  width: 100%;
+.transparent-glass-card:hover {
+  border-color: rgba(192, 132, 252, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-4px);
 }
 
-.module-thumbnail-card {
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-.module-img-container {
-  width: 100%;
-  aspect-ratio: 1.4 / 1;
-  overflow: hidden;
-}
-
-.module-img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.module-text-padding {
-  padding: 24px;
-}
-
-.module-action-link {
-  color: #ffffff;
-  background-color: transparent;
-  text-decoration: none;
-  font-size: 13px;
-  padding: 5px;
-  font-weight: 500;
-  display: inline-block;
-  margin-top: 16px;
-  opacity: 0.8;
-  transition: opacity 0.2s;
-}
-
-.module-action-link:hover {
-  opacity: 1;
-}
-
-/* CTA Styles configuration setups template blocks definitions tracking runtime layers */
-.cta-banner-wrapper {
-  justify-content: center;
-  text-align: center;
-}
-
-.cta-glass-panel {
-
-  width: 100%;
-  padding: 64px;
-  border-color: rgba(59, 130, 246, 0.2);
-}
-
-.cta-glass-panel h2 {
-  font-size: 44px;
+.neon-gradient-text {
+  background: linear-gradient(135deg, #C084FC 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
   font-weight: 800;
-  margin-bottom: 16px;
 }
 
-.cta-glass-panel p {
-  color: #a1a1aa;
-  max-width: 580px;
-  margin: 0 auto 32px auto;
-  font-weight: 300;
-  line-height: 1.6;
-}
+/* ==========================================================================
+   MEDIA QUERIES FOR MAX RESPONSIVENESS
+   ========================================================================== */
 
-.center-btn-row {
-  display: flex;
-  gap: 16px;
-  padding-top: 70px;
-  padding-bottom: -20px;
-  justify-content: center;
-}
-.training-cta-description{
-  padding-top: 20px;
-}
-
-/* -------------------------------------------
-   RESPONSIVE DESIGN VIEWPORT QUERIES
-------------------------------------------- */
-@media (max-width: 1120px) {
-  .quad-cards-grid, .featured-modules-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* Laptops & Small Desktops */
+@media (max-width: 1024px) {
+  .hero-header-title {
+    font-size: 44px;
+  }
+  .split-hero-layout {
+    gap: 32px;
+  }
+  .training-page-section {
+    min-height: auto;
+    padding: 60px 0;
   }
 }
 
-@media (max-width: 992px) {
+/* Tablets (Portrait) */
+@media (max-width: 768px) {
   .split-hero-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Switch to stack structure */
+    text-align: left;
     gap: 40px;
   }
-  .hero-header-title {
-    font-size: 42px;
-  }
+
   .program-row-title-block {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .program-row-title-block button {
+    align-self: flex-start;
+  }
+
+  .hero-header-title {
+    font-size: 38px;
+  }
+
+  .hero-paragraph-desc {
+    font-size: 15px;
+    margin: 16px 0 24px 0;
+  }
+
+  .quad-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
-@media (max-width: 576px) {
-  .quad-cards-grid, .featured-modules-grid {
-    grid-template-columns: 1fr;
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .training-content-canvas {
+    padding: 0 16px;
   }
-  .btn-row-flex, .center-btn-row {
+
+  .hero-header-title {
+    font-size: 32px;
+  }
+
+  .btn-row-flex {
     flex-direction: column;
     width: 100%;
   }
-  .btn-row-flex button, .center-btn-row button {
+
+  .action-gradient-btn, .secondary-outline-btn {
     width: 100%;
+    text-align: center;
   }
-  .cta-glass-panel {
-    padding: 32px 20px;
-  }
-  .cta-glass-panel h2 {
-    font-size: 30px;
+
+  .floating-count-badge {
+    bottom: 12px;
+    left: 12px;
+    padding: 10px 16px;
   }
 }

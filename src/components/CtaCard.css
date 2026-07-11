@@ -28,15 +28,43 @@
 
 /* Glassmorphism Card Style */
 .cta-glass-card {
-  backdrop-filter: blur(22px) saturate(120%);
-  -webkit-backdrop-filter: blur(22px) saturate(120%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(32px) saturate(150%);
+  -webkit-backdrop-filter: blur(32px) saturate(150%);
+  border: 1px solid rgba(192, 132, 252, 0.4);
   border-radius: 40px; 
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+  
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease;
   transform: translateY(-5px);
   border-color: rgba(192, 132, 252, 0.35);
-  background: rgba(255, 255, 255, 0.04);
+ background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.04) 0%, 
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.25), /* టాప్ ఎడ్జ్ లైట్ రిఫ్లెక్షన్ */
+    inset 0 10px 30px rgba(255, 255, 255, 0.03), /* ఇంటర్నల్ సాఫ్ట్ గ్లో */
+    0 20px 50px -10px rgba(0, 0, 0, 0.65); /* డార్క్ ఔటర్ డ్రాప్ షాడో */
+  
+  /* హోవర్ వద్దు అన్నారు కాబట్టి ట్రాన్స్‌ఫార్మ్స్, ట్రాన్సిషన్స్ తీసేసి స్టాటిక్‌గా సెట్ చేశాను */
+  position: relative;
+  overflow: hidden;
+
+}
+
+
+
+/* కార్డ్ లోపల టాప్-రైట్ సైడ్ ఒక సాఫ్ట్ పర్పుల్ నియాన్ లైట్ (గ్లాస్ ఎఫెక్ట్ ఎలివేట్ అవ్వడానికి) */
+.cta-glass-card::before {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
+  top: -80px;
+  right: -80px;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Typography Fluid Scalings */

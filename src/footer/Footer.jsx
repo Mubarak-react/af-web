@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import  Aflogo from '../assets/images/Aflogo.svg'
 import './Footer.css';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -10,9 +11,9 @@ const Footer = () => {
   const footerRef = useRef(null);
 
   useGSAP(() => {
-    // Footer లోపల ఉన్న కాలమ్స్ స్క్రోల్ చేసినప్పుడు స్మూత్ గా పైకి లేస్తూ వస్తాయి (Scrub Method)
+    // 1. Footer Columns Animation
     gsap.fromTo('.footer-col',
-      { y: 50, opacity: 0 },
+      { y: 40, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -20,14 +21,15 @@ const Footer = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: '.footer-main-content',
-          start: "top 95%",
-          end: "top 75%",
-          scrub: 1
+          start: "top 95%",   // ఫుటర్ టాప్ స్క్రీన్ కింద నుండి 95% కి రాగానే స్టార్ట్ అవుతుంది
+          end: "bottom bottom", 
+          toggleActions: "play none none reverse", // స్క్రోల్ అవ్వకపోయినా సేఫ్ గా ప్లే అవ్వడానికి
+          scrub: 0.5 // స్క్రబ్బింగ్ ని కొంచెం స్మూత్ చేసాం
         }
       }
     );
 
-    // Bottom Copyright line smooth fade in
+    // 2. Bottom Copyright line smooth fade in
     gsap.fromTo('.footer-bottom-bar',
       { opacity: 0 },
       {
@@ -36,11 +38,12 @@ const Footer = () => {
         scrollTrigger: {
           trigger: '.footer-bottom-bar',
           start: "top 98%",
-          scrub: 1
+          toggleActions: "play none none reverse",
+          scrub: 0.5
         }
       }
     );
-  }, { scope: footerRef });
+  }, { scope: footerRef }); // Scope పర్ఫెక్ట్ గా ఉంది బ్రో
 
   return (
     <footer ref={footerRef} className="footer-section-wrapper">
@@ -49,11 +52,7 @@ const Footer = () => {
         {/* Column 1: Brand Info */}
         <div className="footer-col brand-info-col">
           <div className="footer-logo-box">
-            {/* నువ్వు పెట్టిన AF Agency లోగో ఇక్కడ వస్తుంది */}
-            <div className="brand-logo-circle">
-              <span className="logo-text-f">AF</span>
-              <span className="logo-sub-text">AD AGENCY</span>
-            </div>
+          <img className='Aflogo-Footer' src={Aflogo}/>
           </div>
           <p className="brand-brief-text">
             Leading Commercial Ad Agency & Digital Marketing Company based in Hyderabad. We transform brands through creative visual storytelling.
@@ -94,19 +93,20 @@ const Footer = () => {
             <p className="contact-text">contact@afadagency.com</p>
           </div>
         </div>
-
+                       
       </div>
-
+         <div className='bottom-text'>
+            <p className="copyright-text">© 2024 AF Ad Agency & Studios. All Rights Reserved.</p>
+                     <div className='footer-social-links'>
+                      <a href='#'>Instagram</a>
+                <a href='#'>Facebook</a>
+                <a href='#'>LinkedIn</a>
+                <a href='#'>YouTube</a>
+                     </div>
+          
+          </div>  
       {/* Footer Bottom Bar: Copyright & Socials */}
-      <div className="footer-bottom-bar">
-        <p className="copyright-text">© 2024 AF Ad Agency & Studios. All Rights Reserved.</p>
-        <div className="footer-social-links">
-          <a href="#instagram">Instagram</a>
-          <a href="#facebook">Facebook</a>
-          <a href="#linkedin">LinkedIn</a>
-          <a href="#youtube">YouTube</a>
-        </div>
-      </div>
+      
     </footer>
   );
 };

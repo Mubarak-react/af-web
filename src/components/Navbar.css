@@ -22,7 +22,6 @@
 .navbar-logo img {
   height: 40px;
 
-   animation: spin 4s linear infinite;
 }
 
 
@@ -40,6 +39,9 @@
   gap: 30px;
   list-style: none;
   margin: 0;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .navbar-links li {
@@ -84,8 +86,9 @@
   border: none;
   padding: 10px 22px;
   border-radius: 30px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+   font-family: 'Inter';
+  font-weight: 500;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }

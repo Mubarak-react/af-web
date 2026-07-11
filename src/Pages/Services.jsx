@@ -6,7 +6,10 @@ import servicesImage from '../assets/images/servicesImage.svg'
 import creativeStrategyAudit from '../assets/images/creativeStrategyAudit.svg'
 import AverageRoseAcrossClient from '../assets/images/AverageRoseAcrossClient.svg'
 import CTACards from '../components/CTAcards'
+import Footer from '../footer/Footer'
+import FeaturedCoursesCards from '../components/FeaturedCoursesCards';
 gsap.registerPlugin(ScrollTrigger);
+
 
 
 const Services = () => {
@@ -203,6 +206,8 @@ const Services = () => {
           </div>
         </section>
 
+        
+
         {/* CTA SECTION */}
         <CTACards 
           title="Ready To Scale Your"
@@ -211,6 +216,8 @@ const Services = () => {
           btnText="Book Free Consultation"
           btnText2="View Our Portfolio"
         />
+
+        <Footer/>
 
       </div>
     </div>

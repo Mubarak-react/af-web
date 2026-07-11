@@ -14,6 +14,10 @@ import VideoEditing from './TrainingSubPages/VideoEditing';
 import Photography from './TrainingSubPages/Photography';
 import GimbalDrone from './TrainingSubPages/GimbalDrone'
 import ScrollTop from './components/ScrollTop'
+
+import MetaAd from "./TrainingSubPages/MetaAd";
+import CommercialAd from "./TrainingSubPages/CommercialAd";
+import DigitalMarketing from "./TrainingSubPages/DigitalMarketing";
 // const Page = ({ title }) => (
 //   <div style={{
 //     minHeight: "100vh",
@@ -47,6 +51,9 @@ export default function App() {
         <Route path="/VideoEditing" element={<VideoEditing/>} />
         <Route path="/Photography" element={<Photography/>} />
         <Route path="/GimbalDrone" element={<GimbalDrone/>} />
+        <Route path="/MetaAd" element={<MetaAd/>} />
+        <Route path="/CommercialAd" element={<CommercialAd/>} />
+        <Route path="/DigitalMarketing" element={<DigitalMarketing/>} />
 
 
 

@@ -1,22 +1,31 @@
 /* --- FOOTER MAIN WRAPPER --- */
 .footer-section-wrapper {
-  background-color: #121212; /* Exact dark page continuation */
   border-top: 1px solid #1f1f24;
-  padding: 80px 60px 30px 60px;
-  width: 100%;
+  padding: 80px 0 30px 0; /* ఇరువైపులా ప్యాడింగ్ 0 చేశాం */
+  width: 100vw;           /* స్క్రీన్ విడ్త్ మొత్తం తీసుకుంటుంది */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); /* పేరెంట్ కంటైనర్ 1200px ఉన్నా, ఇది బయటకు వచ్చి Full Width అవుతుంది */
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
+  background-color: transparent; /* ఒకవేళ బ్యాక్‌గ్రౌండ్ బ్లాక్ కావాలంటే #000000 లేదా transparent ఉంచండి */
 }
 
+
+.Aflogo-Footer{
+  height:76px;
+  width:78px
+}
 .footer-main-content {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
   gap: 50px;
   width: 100%;
   max-width: 1200px;
+  padding: 0 24px; /* లోపలి కంటెంట్ ఇరువైపులా గ్యాప్ కోసం */
   margin-bottom: 60px;
+  box-sizing: border-box;
 }
 
 /* --- COLUMNS CONFIG --- */
@@ -123,7 +132,7 @@
 /* --- BOTTOM COPYRIGHT BAR --- */
 .footer-bottom-bar {
   border-top: 1px solid #1c1c1e;
-  padding-top: 30px;
+  padding: 30px 24px 0 24px; /* ఇరువైపులా ప్యాడింగ్ యాడ్ చేశాం */
   width: 100%;
   max-width: 1200px;
   display: flex;
@@ -131,27 +140,30 @@
   align-items: center;
 }
 
+
 .copyright-text {
-  color: #636366;
+  color: #a1a1aa; /* డార్క్ గ్రే నుండి లైట్ గ్రే కి మార్చాం (బాగా కనిపిస్తుంది) */
   font-size: 0.85rem;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .footer-social-links {
   display: flex;
-  gap: 25px;
+  gap:25px;
+  margin-top: 5px;
 }
 
 .footer-social-links a {
-  color: #636366;
   text-decoration: none;
   font-size: 0.85rem;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.2s;
+  color: #ffffff; 
+  transform: translateY(-2px);
 }
 
-.footer-social-links a:hover {
-  color: #ffffff;
-}
+
 
 /* --- RESPONSIVE RESPONSIVENESS --- */
 @media (max-width: 992px) {

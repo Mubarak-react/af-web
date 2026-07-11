@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';import { gsap } from 'gsap';
+import { useNavigate } from 'react-router-dom';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './home.css';
 import BGimage from '../assets/images/BGImage.svg';
-import footer from '../footer/Footer'
+import Footer from '../footer/Footer'
 import HomeImage from '../assets/images/homepageimage.svg'
 import metaadsmanagement from '../assets/images/meta ads management.svg'
 import CommercialAdfilmmaking from '../assets/images/Commercial Ad film making.svg'
@@ -11,6 +12,13 @@ import DroneTraining from '../assets/images/Drone Training.svg'
 import Photography2 from '../assets/images/Photography2.svg'
 import CTACards from '../components/CTAcards' 
 import AgencyImage from '../assets/images/Agency Workspace.svg'
+import ProfessionalCameraTraining from '../assets/images/Professional Camera Training.svg';
+import AboutUSheaderImg from '../assets/images/AboutUSheaderImg.svg'
+import commercialADImage from '../assets/images/commercialADImage.png'
+import digitalMarketing from '../assets/images/digital-marketing.png'
+import metaAd from '../assets/images/metaAd.png'
+import CEOImage from '../assets/images/CEOImg.PNG'
+
 
 // Mock placeholders for missing images—replace these with your actual image assets
 // import PhotographyImg from '../assets/images/photography.jpg'; 
@@ -30,6 +38,7 @@ function Home() {
   const servicesRef = useRef(null);
   const [textIndex, setTextIndex] = useState(0);
   const heroTitleRef = useRef(null);
+  const navigate = useNavigate();
   
   // New Section References
   const headingSectionRef = useRef(null);
@@ -45,8 +54,8 @@ function Home() {
   const [activeFaq, setActiveFaq] = useState(null);
 
   const titles = [
-    <>Top Photography & Cinematography Training Institute in <span className="aboutus-highlight-blue">Hyderabad</span></>,
-    <>Top Digital Marketing & Commercial Video Production Agency in <span className="aboutus-highlight-blue">Hyderabad</span></>
+    <>Top Photography, Cinematography, Video Editing, Color Grading & Drone Flying Training Institute in <span className="aboutus-highlight-blue">Hyderabad</span></>,
+    <>Top Digital Marketing, Meta Ads Management & Commercial Video Production Agency in <span className="aboutus-highlight-blue">Hyderabad</span></>
   ];
 
   const faqData = [
@@ -121,7 +130,7 @@ function Home() {
           );
         }
       });
-    }, 2000); // 3000ms = 3 Seconds
+    }, 15000); // 3000ms = 3 Seconds
 
    
     // 1. Initial Load Flow (Slide 1)
@@ -337,7 +346,7 @@ if (ctaRef.current) {
 
       <main>
         {/* Slide 1: Hero Container */}
-        <section className="slide-section">
+        {/* <section className="slide-section">
           <div className="hero-container">
             <div className="hero-text-content" ref={heroTextRef}>
               <span className="hero-tagline">Welcome to AF Future Tech & Staffing</span>
@@ -361,116 +370,140 @@ if (ctaRef.current) {
             </div>
             <div className="home-hero-image-wrapper" ref={heroImgRef}> 
               <img src={HomeImage}  alt="AF Tech Analytics" />
-              {/* src={RobotImg}  */}
+            
             </div>
           </div>
-        </section>
+        </section> */}
+
+          <section className="home-hero-page-section">
+  <div className="split-hero-layout">
+    
+    {/* Left Content Column */}
+    <div className="hero-content-left" ref={heroTextRef}>
+      <span className="hero-tagline">Welcome to AF Ad agency & studios</span>
+      <h1 className='home-heading'  ref={heroTitleRef}>
+        {titles[textIndex]}
+      </h1>
+
+     
+
+      <div className="hero-buttons">
+        <button className="btn-primary">View Our Portfolio</button>
+        <button className="home-call-btn">
+          <a href="tel:+91 7661813635">Contact Us</a>
+        </button>
+      </div>
+
+      
+    </div>
+
+    
+
+    {/* Right Media Display Frame */}
+    <div className="hero-media-right hero-load-node" ref={heroImgRef}>
+      <div className="cinematic-preview-frame">
+        <img className='AboutUSheader-image' src={AboutUSheaderImg} alt="Cinematographer operating premium cinema camera rig" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+      
+     <div className="hero-glass-card-info hero-load-node">
+  <p className="hero-paragraph-desc-glass">
+    <strong>AF Studios & Ad Agency</strong> also offers industry-focused <strong>photography, cinematography, drone filmmaking, gimbal operation, filmmaking, video editing, and professional color grading training</strong> designed for aspiring weddings, film makers, creators and media professionals. Our hands-on courses combine practical learning with <strong>real-world projects</strong>, helping students <strong>master camera techniques, cinematic storytelling, drone cinematography, post-production workflows, DaVinci Resolve and Adobe Premiere Pro.</strong> Whether you're starting a creative career or upgrading your skills, our professional media training equips you with the expertise needed for opportunities in <strong>Photography, Filmmaking, Content Creation</strong> and <strong>Digital Media</strong>.
+  </p>
+</div>
+
+<div className="hero-glass-card-info hero-load-node">
+  <p className="hero-paragraph-desc-glass">
+    <strong>AF Studios & Ad Agency</strong> is a leading creative agency specializing in <strong>commercial ad film production</strong>, <strong>corporate video production</strong>, professional photography, videography, and video editing services, <strong>SEO & Meta Ad services</strong>. We work with businesses in healthcare, education, real estate, architecture, interior design, retail, lifestyle, automobile, jewellery, fashion, product-based, and service-based industries to create <strong>impactful brand films</strong>, commercial advertisements, product shoots, promotional videos, and <strong>customer testimonials</strong> that increase brand visibility, engage audiences, and accelerate <strong>business growth</strong>.
+  </p>
+</div>
 
         {/* Slide 2: Status Counters */}
         <section className="slide-section">
           <div className="stats-container" ref={statsRef}>
             <div className="stat-item"><h2>7+</h2><p>Years Experience</p></div>
-            <div className="stat-item"><h2>180+</h2><p>Projects Completed</p></div>
-            <div className="stat-item"><h2>120+</h2><p>Happy Clients</p></div>
-            <div className="stat-item"><h2>97%</h2><p>Client Satisfaction</p></div>
+            <div className="stat-item"><h2>500+</h2><p>Projects Completed</p></div>
+            <div className="stat-item"><h2>5+</h2><p>GLOBAL PRESENCE</p></div>
+            <div className="stat-item"><h2>1000+</h2><p>Students Trained </p></div>
           </div>
         </section>
 
         {/* Slide 3: Our Services */}
-        <section className="slide-section services-section">
-          <h2 className="services-title">Our <span>Services</span>  </h2>
-          <div className="services-grid" ref={servicesRef}>
-            <div className="service-card glass-card">
-                <img className='services-image' src={CommercialAdfilmmaking}/>
-              <h3>Commercial Ad Production</h3>
+       <section className="Our-Services-cards services-section">
+  <h2 className="services-title">Our <span>Services</span> </h2>
+  <div className="services-grid" ref={servicesRef}>
+    
+    {/* Commercial Ad Production */}
+    <div onClick={() => navigate('/CommercialAd')} className="our-ser-card glass-card">
+      <div className="image-wrapper">
+        <img className='commercial-image-alignment' src={commercialADImage} alt="Commercial Ad"/>
+      </div>
+      <h3>Commercial Ad Production</h3>
+      <p>Cinematic commercial videos designed to engage audiences and generate leads.</p>
+      <button className='our-services-button' onClick={() => navigate('/CommercialAd')}>Know More <span className="arrow">&rarr;</span></button>
+    </div>
+
+    {/* Digital Marketing */}
+    <div onClick={() => navigate('/DigitalMarketing')} className="our-ser-card glass-card">
+      <div className="image-wrapper">
+        <img className='commercial-image-alignment' src={digitalMarketing} alt="Digital Marketing"/>
+      </div>
+      <h3>Digital Marketing</h3>
+      <p>Results-driven SEO, Social Media Marketing, and Content Marketing help businesses achieve sustainable growth.</p>
+      <button className='our-services-button' onClick={() => navigate('/DigitalMarketing')}>Know More <span className="arrow">&rarr;</span></button>
+    </div>
+
+    {/* Meta Ads Management */}
+    <div onClick={() => navigate('/MetaAd')} className='our-ser-card'>
+      <div className='meta-ad-container'>
+        <img className='meta-ads-image' src={metaAd} alt="Meta Ads"/>
+      </div>
+      <h3>Meta Ads Management</h3>
+      <p>Strategic Facebook and Instagram Ads focusing on audience targeting, lead generation, and maximizing ROI.</p>
+      <button className='our-services-button' onClick={() => navigate('/MetaAd')}>Know More <span className="arrow">&rarr;</span></button>
+    </div>
+        
+  </div>
+
+    <FeaturedCoursesCards/>
+  
+</section>
+
+       
             
-              <p>Cinematic commercial videos designed to engage audiences and generate leads.</p>
-            </div>
-            <div className="service-card glass-card">
-              <img className='services-image' src={SEOdigitalmarketing}/>
-              <h3>Digital Marketing</h3>
-              <p>Results-driven SEO, Social Media Marketing, and Content Marketing help businesses achieve sustainable growth.</p>
-            </div>
-            <div className="service-card glass-card">
-              <img className='services-image' src={metaadsmanagement}/>
-              <h3>Meta Ads Management</h3>
-              <p>Strategic Facebook and Instagram Ads focusing on audience targeting, lead generation, and maximizing ROI.</p>
-            </div>
-          </div>
-        </section>
 
-        {/* Slide 4: Central Leading Text Layout */}
-        <section className="slide-section">
-          <div className="heading-only-section" ref={headingSectionRef}>
-            <h2 className="leading-headline">
-              Leading Digital Marketing & Advertising Agency For <span>Business Growth</span>
-            </h2>
-            <p className="sub-brand-desc">
-              AF Ad Agency & Studios is a full-service Commercial Advertising Agency, Digital Marketing Company, 
-              Video Production Studio, and Media Training Institute dedicated to helping businesses grow through innovative branding.
-            </p>
-          </div>
-        </section>
-
-        {/* Slide 5: Profile Info & Vision Mission Layout */}
-        <section className="slide-section">
-          <div className="about-container">
-            <div className="about-image-wrapper" ref={aboutImgRef}>
-              <img className="profile-img" src={AgencyImage} alt="Executive Profile" />
-            </div>
             
-            <div className="about-text-content" ref={aboutTextRef}>
-              <p className="about-main-text">
-                Our expertise includes Commercial Ad Production, Corporate Video Production, Product Photography, 
-                Brand Photography, Professional Videography, SEO Services, Google Ads Management, Meta Ads Management, and more.
-              </p>
-              <p className="about-main-text">
-                Alongside our agency services, we offer industry-focused training programs in Cinematography, 
-                Photography, Video Editing, Gimbal Handling, and Drone Flying, providing practical experience and professional guidance.
-              </p>
-              
-              <div className="vision-mission-grid">
-                <div className="vision-box glass-card">
-                  <h4>Our Mission</h4>
-                  <p>To empower businesses through innovative advertising and strategic digital marketing while developing future media professionals.</p>
-                </div>
-                <div className="vision-box glass-card">
-                  <h4>Our Vision</h4>
-                  <p>To become one of Professional, Trusted, Experienced, Growing agency known for innovation, quality, and measurable business results.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* --- Added Slide 6: Media Training Programs --- */}
-      
-  <FeaturedCoursesCards/>
-      
-
         <section className="slide-section combo-section">
           <div className="combo-container" ref={cineComboRef}>
             
             {/* Left Content Column */}
             <div className="cinecombo-left">
-              <span className="combo-premium-tag">PREMIUM BUNDLE</span>
+              <span className="combo-premium-tag">Join Now parallel fasttrack cine combo (pfc batch)</span>
               <h2 className="combo-title">CINECOMBO <span>TRAINING</span></h2>
               
               <div className="combo-features-list">
                 <div className="feature-item">
-                  <span className="check-icon">✓</span> <p>Hands-On Practical Training</p>
+                  <span className="check-icon">✓</span> <p>Photography</p>
                 </div>
                 <div className="feature-item">
-                  <span className="check-icon">✓</span> <p>Real Client Projects</p>
+                  <span className="check-icon">✓</span> <p>Photoshop (Complementary)</p>
                 </div>
                 <div className="feature-item">
-                  <span className="check-icon">✓</span> <p>Industry Mentorship</p>
+                  <span className="check-icon">✓</span> <p>Cinematography</p>
                 </div>
                 <div className="feature-item">
-                  <span className="check-icon">✓</span> <p>Career Guidance</p>
+                  <span className="check-icon">✓</span> <p>Video Editing & Color Grading</p>
                 </div>
+                
                  <div className="feature-item">
-                  <span className="check-icon">✓</span> <p>Placement Assistance</p>
+                  <span className="check-icon">✓</span> <p>Gimbal</p>
+                </div>
+                <div className="feature-item">
+                  <span className="check-icon">✓</span> <p>Drone (Complementary)</p>
                 </div>
               </div>
               
@@ -479,27 +512,28 @@ if (ctaRef.current) {
 
             {/* Right Glassmorphism Cards Matrix */}
             <div className="cinecombo-right-grid">
-              <div className="combo-stat-card glass-card">
-                <h3>5+</h3>
-                <p>CORE SKILLS</p>
+              <div className="combo-stat-card">
+               
+                <p>PROFESSIONAL CORPORATE ENVIRONMENTAL</p>
               </div>
               <div className="combo-stat-card glass-card">
-                <h3>Real</h3>
-                <p>PRODUCTION EXPERIENCE</p>
+                
+                <p>PORTFOLIO BUILDING FOR CAREER GROWTH</p>
               </div>
               <div className="combo-stat-card glass-card">
-                <h3>Top</h3>
-                <p>INDUSTRY MENTORSHIP</p>
+                
+                <p>OFFICIAL CERTIFICATION</p>
               </div>
               <div className="combo-stat-card glass-card">
-                <h3>100%</h3>
-                <p>PRACTICAL LEARNING</p>
+                
+                <p>NETWORKING WITH INDUSTRY EXPERTS</p>
               </div>
             </div>
 
           </div>
         </section>
 
+        
         <section className="slide-section why-section">
           <div className="why-wrapper" ref={whyChooseRef}>
             <h2 className="why-main-title">Why Choose AF Ad <span>Agency & Studios</span></h2>
@@ -527,6 +561,67 @@ if (ctaRef.current) {
             </div>
           </div>
         </section>
+        {/* Slide 4: Central Leading Text Layout */}
+        <section>
+          <div className="heading-only-section" ref={headingSectionRef}>
+            <h2 className="leading-headline">
+           <span>India's</span> Creative Hub for Advertising, Digital Marketing & Filmmaking Training 
+            </h2>
+            {/* <p className="sub-brand-desc">
+              AF Ad Agency & Studios is a full-service Commercial Advertising Agency, Digital Marketing Company, 
+              Video Production Studio, and Media Training Institute dedicated to helping businesses grow through innovative branding.
+            </p> */}
+          </div>
+        </section>
+
+        {/* Slide 5: Profile Info & Vision Mission Layout */}
+        <section className="slide-section">
+          <div className="about-container">
+            <div className="about-image-wrapper" ref={aboutImgRef}>
+  <img className="profile-img" src={CEOImage} alt="Executive Profile" />
+  
+  {/* Gradient Overlay and Text */}
+  <div className="image-overlay">
+    <div className="founder-info">
+      <h3>Shaik Afroz</h3>
+      <p>CEO & Director</p> {/* కావాలంటే ఈ లైన్ ఉంచుకోవచ్చు లేదా డిలీట్ చేయొచ్చు */}
+    </div>
+  </div>
+</div>
+            
+            
+            <div className="about-text-content" ref={aboutTextRef}>
+          
+              
+              
+              <div className="vision-mission-grid">
+                <div className="vision-box">
+                  <h4>Our Mission</h4>
+                  <p>
+                    Our mission is to help businesses grow through creative advertising, professional photography, cinematic video production, branding, and result-driven digital marketing while providing affordable, industry-focused filmmaking training that empowers aspiring creators with practical skills, real-world experience, and career-ready education</p>
+                </div>
+                <div className="vision-box">
+                  <h4>Our Vision</h4>
+                  <p>To build AF Studios into a globally recognized advertising agency, digital marketing company, and filmmaking institute, delivering world-class creative solutions for leading brands while making professional filmmaking education affordable and accessible for aspiring creators across India.</p>
+                </div>
+              </div>
+              <div className="hero-glass-card-info">
+          <h1 style={{color: '#a855f7'}} >Founder's Message</h1>
+  <p className="hero-paragraph-desc-glass">
+    Success isn't defined by where you start-it's defined by the vision you pursue and the consistency you bring every day. I built AF Studios from the ground up with the belief that creativity can change lives. My goal is not only to create award-winning films and commercials for global brands but also to inspire and train thousands of future filmmakers by making professional filmmaking education accessible and affordable for everyone.
+  </p>
+</div>
+            </div>
+          </div>
+        </section>
+        
+
+        {/* --- Added Slide 6: Media Training Programs --- */}
+      
+ 
+      
+
+
         <section className="slide-section faq-section">
           <div className="faq-wrapper" ref={faqRef}>
             <h2 className="faq-main-title">Frequently Asked <span>Questions</span></h2>
@@ -566,8 +661,13 @@ if (ctaRef.current) {
         btnText="Book Strategy Call"
         phoneNumber="7661813635"
       />
+
+      
+   
+   <Footer />
+
       </main>
-        <footer/>
+        
     </>
   );
 }

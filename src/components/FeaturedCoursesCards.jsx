@@ -1,11 +1,12 @@
 import React, { useRef, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom'; 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import './FeaturedCourses.css'
+import './FeaturedCourses.css';
 
+// 1. Ee import already undi kabatti kinda kothaga declare cheyakudadhu
 import TrainingCard from './TrainingCards';
 
-// Nee images paths ikkada pettko
 import Photography2 from '../assets/images/Photography2.svg';
 import CinematographyImg from '../assets/images/cinematography.svg';
 import VideoEditingImg from '../assets/images/Video Editing Training.svg';
@@ -15,16 +16,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FeaturedCoursesCards = () => {
   const trainingGridRef = useRef(null);
+  const location = useLocation(); 
 
-  // 2. Data antha oka simple list (Array) laga ikkada dachaam
   const data = [
-    { id: 1, img: Photography2, title: "Photography", desc: "Commercial, product, and portrait photography techniques.", path:'/Photography' },
-    { id: 2, img: CinematographyImg, title: "Cinematography", desc: "Advanced camera operation and cinematic lighting workflows." , path:'/Cinimatography' },
-    { id: 3, img: VideoEditingImg, title: "Video Editing", desc: "Color grading, motion graphics, and post-production skills.", path:'/VideoEditing'  },
-    { id: 4, img: DroneTraining, title: "Gimbal & Drone", desc: "Aerial cinematography and advanced camera stabilization.", path:'/GimbalDrone'  }
+    { id: 1, img: Photography2, title: "Photography", desc: "Commercial, product, and portrait photography techniques.", path: '/Photography' },
+    { id: 2, img: CinematographyImg, title: "Cinematography", desc: "Advanced camera operation and cinematic lighting workflows.", path: '/Cinimatography' },
+    { id: 3, img: VideoEditingImg, title: "Video Editing", desc: "Color grading, motion graphics, and post-production skills.", path: '/VideoEditing' },
+    { id: 4, img: DroneTraining, title: "Gimbal & Drone", desc: "Aerial cinematography and advanced camera stabilization.", path: '/GimbalDrone' }
   ];
 
- useEffect(() => {
+  useEffect(() => {
     if (!trainingGridRef.current) return;
     gsap.fromTo(trainingGridRef.current.children,
       { opacity: 0, y: 60 },
@@ -45,21 +46,24 @@ const FeaturedCoursesCards = () => {
       <div className="training-wrapper">
         
         <div className="training-header">
-          <h2 className="training-main-title">Media Training <span>Programs</span></h2>
-          <p className="training-sub-desc">Master industry-standard tools...</p>
+          <h2 className="training-main-title">Hands-On <span>Photography & Filmmaking</span> Courses </h2>
+          <p className="training-sub-desc">AF Studios offers professional training in Photography, Cinematography, Video Editing, Color Grading, Drone Operation, Gimbal Filmmaking, and Content Creation. Learn through practical sessions with industry-standard equipment and build a portfolio for your creative career.</p>
         </div>
 
-        {/* 3. Ikkada .map() use chesi reusable card ni 4 sarlu dynamic ga loop chesthunnam */}
         <div className="TrainingCourses__container" ref={trainingGridRef}>
-          {data.map((item) => (
-            <TrainingCard 
-              key={item.id} 
-              image={item.img} 
-              title={item.title} 
-              description={item.desc} 
-              path={item.path} 
-            />
-          ))}
+          {data.map((item) => {
+            const isActive = location.pathname.toLowerCase() === item.path.toLowerCase();
+            return (
+              <TrainingCard 
+                key={item.id} 
+                image={item.img} 
+                title={item.title} 
+                description={item.desc} 
+                path={item.path} 
+                isActive={isActive} // Prop pass chesthunnam
+              />
+            );
+          })}
         </div>
 
       </div>
@@ -68,6 +72,3 @@ const FeaturedCoursesCards = () => {
 };
 
 export default FeaturedCoursesCards;
-
-
-

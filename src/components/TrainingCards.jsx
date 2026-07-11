@@ -2,28 +2,34 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './FeaturedCourses.css';
 
-const TrainingCard = ({ image, title, description, path }) => {
+// 2. Ikkada 'isActive' prop ni collect చేసుకుంటున్నాం
+const TrainingCard = ({ image, title, description, path, isActive }) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
     if (path) {
       navigate(path);
     } else {
-      console.error("Path missing for:", title); // Path missing unte console lo warning vasthundi
+      console.error("Path missing for:", title);
     }
   };
 
   const handleButtonClick = (e) => {
-    e.stopPropagation(); // Card component click handler ni trigger avvakunda chesthundi
+    e.stopPropagation(); 
     if (path) {
       navigate(path);
     }
   };
 
   return (
-    <div className="TrainingCourses__card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+    // 3. Dynamic active class mapping ikkada chesam
+    <div 
+      className={`TrainingCourses__card ${isActive ? 'active-card' : ''}`} 
+      onClick={handleCardClick} 
+      style={{ cursor: 'pointer' }}
+    >
       <div className="TrainingCourses__image-wrapper">
-        <img src={image} alt={title}  className="TrainingCourses__image"/>
+        <img src={image} alt={title} className="TrainingCourses__image"/>
       </div>
       <div className="TrainingCourses__content">
         <h3 className="TrainingCourses__title">{title}</h3>

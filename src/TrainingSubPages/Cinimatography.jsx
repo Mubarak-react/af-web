@@ -7,7 +7,9 @@ import CinematographyEquipment from '../assets/images/Cinematography Equipment.s
 import FieldProduction from '../assets/images/Field Production.svg'
 import ColorGrading from '../assets/images/Color Grading.svg'
 import StudioSetup from '../assets/images/Studio Setup.svg'
-
+import CurriculumButton from '../components/CurriculumButton'
+import Footer from '../footer/Footer';
+import CinimatographyCurriculum from '../assets/images/CINEMATOGRAPHY BROCHER AF STUDIOS 1.tif 1.svg'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,8 +79,12 @@ const Cinimatography = () => {
                 Master the mechanics of high-end cinema. From ARRI sensor physics to the psychological impact of lighting, we bridge the gap between technical expertise and artistic vision.
               </p>
               <div className="flex-btn-wrap hero-reveal-node">
-                <button className="btn-primary-gradient">Secure Enrollment</button>
-                <button className="btn-secondary-outline">View Curriculum</button>
+                {/* <button className="btn-primary-gradient">Secure Enrollment</button>
+                <button className="btn-secondary-outline">View Curriculum</button> */}
+                <CurriculumButton 
+                                                  imageUrl={CinimatographyCurriculum} 
+                                                  buttonText="View Curriculum"
+                                                />
               </div>
             </div>
 
@@ -91,7 +97,6 @@ const Cinimatography = () => {
           </div>
         </section>
 
-        <FeaturedCoursesCards/>
 
         {/* SECTION 2: MASTER EVERY FRAME LAYOUT DESIGN */}
         <section className="training-viewport-section scroll-replay-section" style={{ flexDirection: 'column' }}>
@@ -192,8 +197,13 @@ const Cinimatography = () => {
             </div>
           </div>
         </section>
-
+ 
+        <FeaturedCoursesCards/>
+        <Footer/>
       </div>
+       
+        
+      
     </div>
   );
 };

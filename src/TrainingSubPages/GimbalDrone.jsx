@@ -4,6 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {Briefcase, Users, BrainCircuit, CheckCircle, CalendarDays, MapPin, Video, Camera, ArrowRight } from 'lucide-react';
 import './GimbalDrone.css';
 import FeaturedCoursesCards from '../components/FeaturedCoursesCards';
+import CurriculumButton from '../components/CurriculumButton'
+import GimbalCurriculum from '../assets/images/GIMBAL BROCHER AF STUDIOS 1.tif 1.svg'
+import DroneCurriculum from '../assets/images/DRONE BROCHER AF STUDIOS 1.tif 1.svg'
+import Footer from '../footer/Footer';
 
 // GSAP Plugins register చేయడం
 gsap.registerPlugin(ScrollTrigger);
@@ -226,16 +230,30 @@ useEffect(() => {
         <section className="hero-section">
           <div className="hero-content">
             <span className="tagline">PROFESSIONAL EDUCATION</span>
-            <h1 className="main-title">
-              Drone, Gimbal & Video <span className="blue-gradient-text">Training Program</span>
+            <h1>
+              Drone & Gimbal <span className="blue-gradient-text">Training Program</span>
             </h1>
             <p className="hero-desc">
               Master the full spectrum of modern visual storytelling. From high-end cinematography to 
               professional post-production, gain the skills to lead industry-grade creative projects.
             </p>
             <div className="btn-group">
-              <button className="btn-primary">Enroll in the Bundle</button>
-              <button className="btn-secondary">View Curriculum</button>
+              {/* <button className="btn-primary">Enroll in the Bundle</button> */}
+              {/* <button className="btn-secondary">View Curriculum</button> */}
+
+
+              <CurriculumButton 
+                 
+                 imageUrl={GimbalCurriculum} 
+                 buttonText="Gimbal Curriculum"
+                />
+              <CurriculumButton 
+                 
+                 imageUrl={DroneCurriculum} 
+                 buttonText="Drone Curriculum"
+                />
+
+               
             </div>
           </div>
         </section>
@@ -379,6 +397,7 @@ useEffect(() => {
           </div>
         </section> */}
           <FeaturedCoursesCards/>
+          <Footer/>
       </div>
 
      

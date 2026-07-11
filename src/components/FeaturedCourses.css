@@ -1,19 +1,32 @@
 /* Container CSS grid layout - Automatically Responsive */
+
+/* 
+.neon-gradient-text {
+  background: linear-gradient(135deg, #C084FC 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 70px;
+} */
+
+/* ---- DESKTOP & TABLET (Big Screens) ---- */
 .TrainingCourses__container {
-  display: grid;
-  /* minmax(280px, 1fr) valla mobile models low-width screens lo kooda card cut avvakunda compress avthundhi */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 24px;
-  max-width: 1400px; /* Big monitors lo expand avvakunda limits chesthundhi */
+  max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 0 16px; /* Mobile edge spacing kosam */
+ 
+  
 }
+
+
 
 /* Card Main Component */
 .TrainingCourses__card {
-  background: linear-gradient(145deg, #0d1224, #060913);
+ 
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   overflow: hidden;
@@ -26,7 +39,13 @@
   /* Card Smooth Zoom on Hover */
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
   will-change: transform;
+   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: none; /* Left border is handled by pseudo-element */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
+
+
 
 /* Card Hover Zoom-in */
 .TrainingCourses__card:hover {
@@ -64,6 +83,52 @@
   flex-grow: 1; /* Space balanced ga maintain chesthundhi cards height match avvadaniki */
 }
 
+/* ==========================================================================
+   🌟 DYNAMIC ACTIVE & INACTIVE CARD STYLES (UPDATED)
+   ========================================================================== */
+
+/* 1. గ్రిడ్‌లో ఏదైనా ఒక కార్డ్ 'active-card' అయితే...
+   మిగిలిన నార్మల్ కార్డ్స్ అన్నీ కొంచెం ఇన్-యాక్టివ్ (opacity 0.45) అయిపోతాయి */
+.TrainingCourses__container:has(.active-card) .TrainingCourses__card:not(.active-card) {
+  opacity: 0.45;
+  filter: grayscale(30%) blur(0.5px); /* కొంచెం కలర్ డ్రాప్ అండ్ బ్లర్ ఎఫెక్ట్ */
+  transform: scale(0.98); /* సైజ్ కొద్దిగా తగ్గుతుంది */
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 2. ఇన్-యాక్టివ్ గా ఉన్న కార్డ్స్ మీద యూజర్ మౌస్ పెడితే, అవి మళ్ళీ కొంచెం బ్రైట్ అవుతాయి */
+.TrainingCourses__container:has(.active-card) .TrainingCourses__card:not(.active-card):hover {
+  opacity: 0.8;
+  filter: grayscale(0%) blur(0px);
+  transform: translateY(-2px) scale(1);
+}
+
+/* 3. 🌟 యాక్టివ్ కార్డ్ స్టైలింగ్ (ఇది ఫుల్ బ్రైట్ గా, గ్లోయింగ్ బార్డర్ తో ఉంటుంది) */
+.TrainingCourses__card.active-card {
+  opacity: 1 !important;
+  filter: grayscale(0%) !important;
+  background: linear-gradient(145deg, #131a35, #0a1024);
+  border-color: #6366f1 !important; /* బ్లూ/పర్పుల్ నియాన్ బార్డర్ */
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.35), 
+              inset 0 0 15px rgba(99, 102, 241, 0.15);
+  transform: translateY(-8px) scale(1.03) !important; /* మిగిలిన వాటికంటే పైకి లేచి కనిపిస్తుంది */
+  z-index: 2; /* అందరికంటే పైన కనిపిస్తుంది */
+}
+
+/* యాక్టివ్ కార్డ్ లోపల ఉన్న టైటిల్ టెక్స్ట్ కి గ్లో ఎఫెక్ట్ */
+.TrainingCourses__card.active-card .TrainingCourses__title {
+  color: #6366f1; 
+  text-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+/* యాక్టివ్ కార్డ్ బటన్ కి ఫుల్ కలర్ ఫిల్ */
+.TrainingCourses__card.active-card .TrainingCourses__button {
+  background-color: #6366f1;
+  border-color: #6366f1;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
 .TrainingCourses__title {
   color: #ffffff;
   font-size: 1.25rem;
@@ -83,34 +148,39 @@
 /* Button UI styling */
 .TrainingCourses__button {
   background: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   padding: 12px 20px;
   border-radius: 8px;
   font-size: 0.88rem;
-  font-weight: 500;
+  font-weight: 600; /* గ్రేడియంట్ బాగా కనిపించడానికి ఫాంట్ వెయిట్ కొంచెం పెంచాను */
   cursor: pointer;
   transition: all 0.25s ease;
   width: 100%;
   text-align: center;
-  margin-top: auto; /* Push down to bottom universally */
+  margin-top: auto;
+
+  /* లీనియర్ గ్రేడియంట్ టెక్స్ట్ ట్రిక్ */
+  background-image: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* Hover చేసినప్పుడు కొంచెం గ్లో లేదా ఎఫెక్ట్ కోసం */
 .TrainingCourses__button:hover {
-  background-color: #ffffff;
-  color: #060913;
-  border-color: #ffffff;
+  opacity: 0.8;
 }
 
-/* --- Media Queries for Perfect Optimization --- */
-@media (max-width: 600px) {
-  .TrainingCourses__image-wrapper {
-    height: 180px; /* Small mobile screens lo image height ni decrease chestham layout balance kosam */
+
+
+/* ---- MOBILE SCREENS (768px kante thakkuva unna screens) ---- */
+@media (max-width: 768px) {
+  .TrainingCourses__container {
+    flex-direction: column; /* Row nunchi Column ki marustham, so automatic ga okadhani kinda okati vasthay */
+    flex-wrap: wrap; 
+    align-items: center;    /* Cards center lo undadaniki */
+    overflow-x: visible;    /* Mobile lo swipe cascade aypothundhi */
   }
-  .TrainingCourses__title {
-    font-size: 1.15rem;
-  }
-  .TrainingCourses__content {
-    padding: 18px; /* Mobile pads reduction */
-  }
+
+ 
 }

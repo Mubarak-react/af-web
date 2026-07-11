@@ -7,7 +7,7 @@ import BGimage from '../assets/images/BGImage.svg';
 import './PortfolioSection.css';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'; 
 import CTACards from '../components/CTAcards'
-
+import Footer from '../footer/Footer'
 import liminaSeries from '../assets/images/liminaSeries.svg'
 import EthirialMotion from '../assets/images/EthirialMotion.svg'
 import nexusInitiative from '../assets/images/nexusInitiative.svg'
@@ -213,6 +213,7 @@ function Portfolio() {
       />
     </div>
      </div>
+     <Footer/>
     </>
   );
 }

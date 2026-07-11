@@ -16,6 +16,7 @@ import AboutUSCAPImage from '../assets/images/AboutUSCAPImage.svg'
 import AboutUSheaderImg from '../assets/images/AboutUSheaderImg.svg'
 import AboutUSMTImage from '../assets/images/AboutUSMTImage.svg'
 import AboutUSDGImage from '../assets/images/AboutUSDGImage.svg'
+import Footer from '../footer/Footer';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -502,6 +503,7 @@ useEffect(() => {
         btnText="Apply Now"
         btnText2="Talk to a Mentor"
       />
+      <Footer/>
       </main>
     </div>
   );

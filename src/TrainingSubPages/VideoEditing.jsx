@@ -8,7 +8,9 @@ import videoediting from '../assets/images/videoediting.svg'
 import CTACards from '../components/CTAcards'
 import VideoEditingImg from '../assets/images/videoeditingImage.svg'
 import VideoEditingPortfolioDev from '../assets/images/VideoEditingPortfolioDev.svg'
-
+import CurriculumButton from '../components/CurriculumButton'
+import Footer from '../footer/Footer';
+import VideoEditingCurriculum from '../assets/images/VIDEO EDITING & COLOR GRADING BROCHER AF STUDIOS 1.tif 1.svg'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -189,8 +191,12 @@ const VideoEditing = () => {
                 Master the art of the cut. Learn advanced color grading, sound design, and narrative flow using industry standards like DaVinci Resolve and Adobe Premiere Pro.
               </p>
               <div className="flex-btn-wrap hero-anim-node">
-                <button className="btn-primary-gradient" onClick={() => navigate('/apply')}>Explore Courses &rarr;</button>
-                <button className="btn-secondary-outline" onClick={() => navigate('/syllabus')}>Download Syllabus</button>
+
+                         <CurriculumButton 
+                                  imageUrl={VideoEditingCurriculum} 
+                                  buttonText="View Curriculum"
+                                />
+                {/* <button className="btn-secondary-outline" onClick={() => navigate('/syllabus')}>Download Syllabus</button> */}
               </div>
             </div>
 
@@ -334,15 +340,7 @@ const VideoEditing = () => {
     </div>
   </div>
 
-      <section className="cta-section">
-          <CTACards 
-        title="Ready To Scale Your"
-        spanText="Visual Presence?"
-        description="Let's craft a bespoke strategy that combines elite cinematography with performance marketing that actually works."
-        btnText="Book Free Consultation"
-        btnText2="View Our Portfolio"
-      />
-      </section>
+      
 
        {/* <section className="training-section-block scroll-animate-section" style={{ flexDirection: 'column' }}>
           <div className="section-header-centered">
@@ -374,10 +372,19 @@ const VideoEditing = () => {
             ))}
           </div>
         </section> */}
-        <FeaturedCoursesCards/>
 
-    
+        <CTACards 
+        title="Ready To Scale Your"
+        spanText="Visual Presence?"
+        description="Let's craft a bespoke strategy that combines elite cinematography with performance marketing that actually works."
+        btnText="Book Free Consultation"
+        btnText2="View Our Portfolio"
+      />
+      
+  <FeaturedCoursesCards/>
+        <Footer/>
       </div>
+      
     </div>
   );
 };
