@@ -258,7 +258,7 @@ const VideoEditing = () => {
           </div>
         </div>
       </section>
-   <section className="portfolio-section">
+   {/* <section className="portfolio-section">
         <div className="portfolio-visual anim-left">
           <div className="mockup-container">
             <img 
@@ -289,14 +289,11 @@ const VideoEditing = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 <div className="section-container" >
     <div className="grid-layout">
       
-      {/* Left Big Card */}
-      {/* GSAP యానిమేషన్ బయట ఉన్న wrapper కి అవుతుంది */}
-      <div className="card-wrapper animate-card"> 
-        {/* హోవర్ జూమ్ ఎఫెక్ట్ ఈ లోపల ఉన్న inner కార్డ్ కి అవుతుంది */}
+     <div className="card-wrapper animate-card"> 
         <div className="card-inner main-card">
           <span className="badge">FLAGSHIP COURSE</span>
           <h1>Complete Post–Production Mastery</h1>

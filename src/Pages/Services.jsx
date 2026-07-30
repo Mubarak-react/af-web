@@ -10,41 +10,53 @@ import Footer from '../footer/Footer'
 import FeaturedCoursesCards from '../components/FeaturedCoursesCards';
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 const Services = () => {
   const mainViewRef = useRef(null);
 
   useEffect(() => {
     const animationCtx = gsap.context(() => {
       
-      // 1. Initial Hero Entrance Animation
+      // 1. Initial Hero Entrance Animation with 3D Depth Shift
       gsap.from('.hero-animate-target', {
-        y: 50,
+        y: 60,
+        rotationX: -20,
+        transformPerspective: 1000,
         opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
+        duration: 1.3,
+        stagger: 0.18,
         ease: 'power3.out',
       });
 
-      // 2. Continuous Scroll-triggered Replay Mechanism
+      // 2. Continuous Scroll-triggered 3D Matrix Replay Mechanism
       const activeSections = document.querySelectorAll('.scroll-trigger-section');
       
       activeSections.forEach((sectionBlock) => {
         const animatedChildren = sectionBlock.querySelectorAll('.reveal-sub-node');
         
-        gsap.from(animatedChildren, {
+        // Setup 3D space perspective onto the layout section container wrapper
+        gsap.set(sectionBlock, { transformPerspective: 1200 });
+
+        gsap.fromTo(animatedChildren, {
+          y: 90,
+          rotationX: -35,
+          scale: 0.92,
+          z: -80,
+          opacity: 0
+        }, {
           scrollTrigger: {
             trigger: sectionBlock,
-            start: 'top 82%',
-            end: 'bottom 18%',
+            start: 'top 84%',
+            end: 'bottom 15%',
             toggleActions: 'play reverse play reverse', 
           },
-          y: 40,
-          opacity: 0,
-          duration: 0.75,
-          stagger: 0.15,
-          ease: 'power2.out'
+          y: 0,
+          rotationX: 0,
+          scale: 1,
+          z: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.16,
+          ease: 'back.out(1.2)'
         });
       });
 
@@ -143,7 +155,7 @@ const Services = () => {
             </div>
 
             {/* Audit Card */}
-            <div className="glass-card-element col-8 reveal-sub-node">
+            {/* <div className="glass-card-element col-8 reveal-sub-node">
               <div className="inner-marketing-flex">
                 <div className="camera-preview-box" style={{ height: '140px' }}>
                   <img src={creativeStrategyAudit} alt="Creative Strategy Analytics Graph (image_db9702.jpg)" />
@@ -154,7 +166,7 @@ const Services = () => {
                   <a href="#download" style={{ color: '#C084FC', fontSize: '12px', textDecoration: 'none', fontWeight: 'bold' }}>Download Sample Report →</a>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
 
@@ -188,7 +200,7 @@ const Services = () => {
               
               <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div>
-                  <div style={{ display: 'flex', justifyWith: 'space-between', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                     <span>Production Efficiency</span>
                     <span style={{ color: '#C084FC' }}>+35%</span>
                   </div>
@@ -206,8 +218,6 @@ const Services = () => {
           </div>
         </section>
 
-        
-
         {/* CTA SECTION */}
         <CTACards 
           title="Ready To Scale Your"
@@ -223,4 +233,5 @@ const Services = () => {
     </div>
   );
 };
+
 export default Services;

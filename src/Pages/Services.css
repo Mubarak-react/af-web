@@ -215,6 +215,14 @@
 
 /* Mobile Phones (768px and down) */
 @media (max-width: 768px) {
+  .sticky-bg-layer {
+
+    height: 110vh;
+  }
+
+  .page-container-layout{
+    margin-top: 50px;
+  }
   .inner-split-subgrid {
     grid-template-columns: 1fr;
   }

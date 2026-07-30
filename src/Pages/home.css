@@ -498,7 +498,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60%; /* ఇమేజ్ మిడిల్ నుండి బాటమ్ వరకు */
+  height: 40%; /* ఇమేజ్ మిడిల్ నుండి బాటమ్ వరకు */
   
   /* లెఫ్ట్ సైడ్ బ్లూయిష్, రైట్ సైడ్ పర్పుల్-వైన్ కలర్ గ్రేడియంట్ బ్లెండ్ */
   background: linear-gradient(
@@ -512,7 +512,7 @@
   align-items: flex-end;
   padding: 30px 24px;
   box-sizing: border-box;
-  z-index: 5 !important;
+  z-index: 4 !important;
 }
 
 /* Founder Text Styling */
@@ -525,9 +525,23 @@
 
 .founder-info h3 {
   margin: 0;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: 800;
   line-height: 1.2;
+  background: linear-gradient(90deg, #C084FC, #3B82F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.founder-info p {
+  font-size: 16px;
+  background: linear-gradient(90deg, #C084FC, #3B82F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .founder-info h2 {
@@ -579,6 +593,7 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
               inset 0 1px 1px rgba(255, 255, 255, 0.1);
   overflow: hidden;
+  
  
 }
 
@@ -612,6 +627,49 @@
   color: #94a3b8;
 }
 
+
+.funder-msg-box{
+    padding: 25px;
+   position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  
+  /* Increased left padding slightly to accommodate the glowing bar */
+
+  
+
+  width: 95%;
+  box-sizing: border-box;
+  margin-left: 20px;
+  
+  /* Subtle glass outer borders */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: none; /* Left border is handled by pseudo-element */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin-top: 30px;
+
+}
+
+.funder-msg-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px; /* Border thickness */
+  height: 100%;
+  background: linear-gradient(
+    180deg, 
+    #a855f7 0%,    /* Neon Purple tint */
+    #6366f1 50%,   /* Indigo */
+    #22d3ee 100%   /* Electric Cyan tint */
+  );
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+  
+}
 /* ==========================================
    Slide 6 - Combo Section
    ========================================== */
@@ -997,6 +1055,13 @@
   
 }
 
+.home-heading {
+    font-size: 40px; /* Phone screens lo fit aye font size */
+    line-height: 1.5;
+    overflow-wrap: break-word;
+  }
+
+
 
 .home-call-btn{
   width:100%;
@@ -1032,8 +1097,9 @@
   .stats-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
-    margin-top: 50px;
-    margin-left: 3px;
+    margin-top: -300px;
+    
+ 
   }
 
  .hero-glass-card-info {
@@ -1044,13 +1110,18 @@
   }
 
   .Our-Services-cards{
-    margin-top: 50px;
+    margin-top: -400px;
   }
 
   .stat-item h2 {
     font-size: 28px;
   }
 
+
+  .stat-item{
+    margin-bottom: 70px;
+
+  }
   .services-grid, .why-grid, .cinecombo-right-grid {
     grid-template-columns: 1fr; /* Pure one-column full-width layouts */
     gap: 20px;

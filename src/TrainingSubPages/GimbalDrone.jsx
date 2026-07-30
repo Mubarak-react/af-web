@@ -230,7 +230,7 @@ useEffect(() => {
         <section className="hero-section">
           <div className="hero-content">
             <span className="tagline">PROFESSIONAL EDUCATION</span>
-            <h1>
+            <h1 className='GimbalDroneHeading'>
               Drone & Gimbal <span className="blue-gradient-text">Training Program</span>
             </h1>
             <p className="hero-desc">
@@ -264,7 +264,7 @@ useEffect(() => {
        
 
         {/* SECTION 3: PREMIUM BUNDLE */}
-        <section className="premium-section">
+        {/* <section className="premium-section">
           <div className="premium-header">
             <h2>The <span className="blue-gradient-text">Premium Bundle</span></h2>
             <p>Five core disciplines integrated into one mastery track.</p>
@@ -278,7 +278,7 @@ useEffect(() => {
             className={`droneGimbalCard ${course.isLarge ? 'droneGimbalWide' : 'droneGimbalNormal'}`}
             style={{ '--bg-image': `url(${course.bgImage})` }}
           >
-            {/* కార్డు లోపల ఉండే డార్క్ గ్రేడియంట్ ఓవర్లే */}
+          
             <div className="droneGimbalOverlay"></div>
             
             <div className="droneGimbalContent">
@@ -292,7 +292,7 @@ useEffect(() => {
         ))}
       </div>
     </div>
-        </section>
+        </section> */}
                <section className="gimbal-feature-section">
           <div className="features-container">
             {/* Card 1 */}

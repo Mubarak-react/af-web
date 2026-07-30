@@ -81,7 +81,7 @@ const DigitalMarketing = () => {
         {/* Hero Section */}
         <header className="dm-hero-section">
           <div className="dm-hero-left">
-            <span className="dm-badge">🚀 Card 2: Digital Marketing</span>
+            <span className="dm-badge">Digital Marketing Services</span>
             <h1>Drive Sustainable Growth with Digital Marketing</h1>
             <p className="dm-lead-text">
               At AF AD Agency, we specialize in high-impact digital marketing strategies that boost brand visibility, drive traffic, and accelerate business growth.

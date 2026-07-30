@@ -77,7 +77,7 @@ export default function CurriculumButton({ title, imageUrl, buttonText = "View C
        
           fontSize: '1.2rem',
           textTransform: 'none',
-          boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)',
+          border:'1px solid gray',
           minWidth: '250px',
        
             background: 'transparent',

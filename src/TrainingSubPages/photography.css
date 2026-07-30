@@ -1,11 +1,4 @@
-/* Base Styles */
-.cinecombo-page {
-  position: relative;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  background-color: #050505;
-  overflow-x: hidden;
-}
+
 
 /* Sticky Background */
 .sticky-bg {
@@ -34,9 +27,60 @@
   align-items: center;
   padding: 60px 4%;
   box-sizing: border-box;
+  width: 100%;
 }
 
-/* Glassmorphism Card Style */
+/* Content Wrapper Align Fix */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+.subtitle {
+  display: block;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #6366f1;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  text-align: center !important; /* Fixed left alignment bug on mobile */
+  line-height: 1.25;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  width: 100%;
+  margin: 0 0 16px 0;
+  box-sizing: border-box;
+}
+
+.hero-desc {
+  text-align: center !important;
+  max-width: 600px;
+  color: #94a3b8;
+  margin: 0 auto 24px auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hero-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Glassmorphism Card Style with Hover 3D Shift */
 .photography-glass-card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
@@ -44,12 +88,15 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 30px;
-  transition: border 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
+  transform-style: preserve-3d;
 }
 
 .photography-glass-card:hover {
-  border: 1px solid rgba(147, 51, 234, 0.3);
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  transform: translateY(-8px) rotateX(4deg);
+  box-shadow: 0 15px 35px rgba(147, 51, 234, 0.15);
 }
 
 /* Typography & Colors */
@@ -62,61 +109,18 @@ h1, h2, h3 {
   margin-bottom: 15px;
 }
 
-.hero-title {
-  font-size: 2.5rem;
-  text-align: center;
-  line-height: 1.2;
-}
-
-.hero-desc {
-  text-align: center;
-  max-width: 600px;
-  color: #94a3b8;
-  margin-bottom: 20px;
-}
-
 .section-title {
   font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 12px;
+  text-align: center !important;
+  width: 100%;
 }
 
 .section-subtitle {
-  text-align: center;
+  text-align: center !important;
   color: #94a3b8;
   margin-bottom: 40px;
-}
-
-/* Buttons */
-.btn-group {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
   width: 100%;
-  max-width: 320px;
-}
-
-.btn-primary, .btn-secondary {
-  width: 100%;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #a855f7, #3b82f6);
-  border: none;
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
 }
 
 /* Photography Curriculum Wrapper Section */
@@ -133,16 +137,17 @@ h1, h2, h3 {
   box-sizing: border-box;
 }
 
-/* Responsive Grid System (Mobile First) */
+/* Grid System */
 .photography-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
   max-width: 1280px;
   width: 100%;
+  perspective: 1000px;
 }
 
-/* Main Card Styling */
+/* Main Card Styling with 3D depth */
 .photography-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -151,13 +156,17 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: border-color 0.3s ease;
+  transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
   min-height: 280px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .photography-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-6px) scale(1.01) rotateX(3deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Card Gradient Layouts */
@@ -190,7 +199,7 @@ h1, h2, h3 {
 }
 
 .photography-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   margin: 0 0 16px 0;
   letter-spacing: -0.5px;
@@ -203,7 +212,7 @@ h1, h2, h3 {
   margin: 0;
 }
 
-/* Features Grid (Module 1) */
+/* Features Grid */
 .photography-features-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -224,7 +233,7 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
-/* Sub Cards Container (Module 4) */
+/* Sub Cards Container */
 .photography-sub-cards-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -242,7 +251,12 @@ h1, h2, h3 {
   gap: 12px;
   font-size: 14px;
   color: #e2e8f0;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.photography-sub-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateZ(10px);
 }
 
 .photography-sub-icon {
@@ -252,7 +266,7 @@ h1, h2, h3 {
   flex-shrink: 0;
 }
 
-/* Grids Setup for other sections */
+/* Other Grids */
 .cards-grid-3, .cards-grid-4 {
   display: grid;
   grid-template-columns: 1fr;
@@ -275,23 +289,31 @@ h1, h2, h3 {
   opacity: 0.8;
 }
 
-/* ==========================================================================
-   MEDIA QUERIES (Tabs & Desktops responsive handles)
-   ========================================================================== */
+/* Buttons */
+.btn-primary {
+  width: auto;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-/* Tablets & Small Desktops (768px and up) */
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
+}
+
+/* Media Queries */
 @media (min-width: 768px) {
   .hero-title { font-size: 3.5rem; }
   .section-title { font-size: 2.5rem; }
-  
-  .btn-group {
-    flex-direction: row;
-    max-width: none;
-    justify-content: center;
-  }
-  .btn-primary, .btn-secondary { width: auto; }
+  .photography-title { font-size: 28px; }
 
-  /* Grid Conversions */
   .photography-grid { grid-template-columns: repeat(2, 1fr); }
   .photography-mod-1, .photography-mod-4 { grid-column: span 2; }
   
@@ -302,10 +324,9 @@ h1, h2, h3 {
   .cards-grid-4 { grid-template-columns: repeat(2, 1fr); }
 
   .cta-box { padding: 50px; }
-  .cta-meta { flex-direction: row; gap: 30px; }
+  .cta-meta { flex-direction: row; gap: 30px; justify-content: center; }
 }
 
-/* Desktops (1024px and up) */
 @media (min-width: 1024px) {
   .photography-grid { grid-template-columns: repeat(3, 1fr); }
   .photography-mod-1 { grid-column: span 2; }

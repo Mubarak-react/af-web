@@ -3,51 +3,91 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './photography.css';
 import FeaturedCoursesCards from '../components/FeaturedCoursesCards';
-import CTACards from '../components/CTAcards'
-import CurriculumButton from '../components/CurriculumButton'
-import PhotographyCurriculum from '../assets/images/Photography Curriculum.svg'
+import CurriculumButton from '../components/CurriculumButton';
+import PhotographyCurriculum from '../assets/images/Photography Curriculum.svg';
 import Footer from '../footer/Footer';
-
-
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 const Photography = () => {
   const containerRef = useRef(null);
-    const [open, setOpen] = React.useState(false);
 
   useEffect(() => {
-    // త్రాన్సిషన్ ఎఫెక్ట్ కోసం కంటైనర్ లోపల ఉన్న అన్ని సెక్షన్లని సెలెక్ట్ చేస్తున్నాం
-    const sections = containerRef.current.querySelectorAll('section');
+    const ctx = gsap.context(() => {
+      // 3D Perspective setup on wrapper elements
+      gsap.set('.cinecombo-page', { perspective: 1000 });
 
-    sections.forEach((section) => {
-      const elementsToAnimate = section.querySelectorAll('.animate-on-scroll');
+      // Hero Section 3D Fade-In
+      gsap.fromTo(
+        '.hero-content-3d',
+        { opacity: 0, y: 50, rotateX: 25, transformOrigin: 'top center' },
+        { opacity: 1, y: 0, rotateX: 0, duration: 1.2, ease: 'power3.out' }
+      );
 
-      if (elementsToAnimate.length > 0) {
+      // Section Titles 3D Effect
+      gsap.utils.toArray('.animate-title-3d').forEach((title) => {
         gsap.fromTo(
-          elementsToAnimate,
-          { opacity: 0, y: 40, scale: 0.98 },
+          title,
+          { opacity: 0, y: 40, rotateX: 30 },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power2.out',
+            rotateX: 0,
+            duration: 1,
+            ease: 'power3.out',
             scrollTrigger: {
-              trigger: section,
-              start: 'top 85%', 
-              end: 'bottom 20%',
-              toggleActions: 'play none none none', // మొబైల్ యూజర్ ఎక్స్‌పీరియన్స్ కోసం యానిమేషన్స్ ఒక్కసారే ప్లే అయ్యేలా సెట్ చేశా
+              trigger: title,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
             },
           }
         );
-      }
-    });
+      });
+
+      // Photography Cards 3D Tilt & Stagger Animation
+      gsap.fromTo(
+        '.photography-card',
+        { opacity: 0, y: 60, rotateX: -20, rotateY: 10, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          rotateY: 0,
+          scale: 1,
+          duration: 1,
+          stagger: 0.18,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.photography-grid',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+
+      // Glass Cards (Who Is This For Section) 3D Animation
+      gsap.fromTo(
+        '.photography-glass-card',
+        { opacity: 0, y: 50, rotateX: 15, scale: 0.92 },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          scale: 1,
+          duration: 0.9,
+          stagger: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.cards-grid-3',
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert(); // Clean up GSAP animations
   }, []);
-
-
 
   return (
     <div className="cinecombo-page" ref={containerRef}>
@@ -56,8 +96,8 @@ const Photography = () => {
 
       {/* Hero Section */}
       <section className="scroll-section hero-section">
-        <div className="content-wrapper animate-on-scroll">
-          <span className="subtitle" style={{ display: 'block', textAlign: 'center', letterSpacing: '2px', marginBottom: '10px' }}>MASTER THE LENS</span>
+        <div className="content-wrapper hero-content-3d">
+          <span className="subtitle">MASTER THE LENS</span>
           <h1 className="hero-title">
             Professional <span>Photography</span> Training
           </h1>
@@ -65,17 +105,11 @@ const Photography = () => {
             Bridge the gap between technical mastery and creative artistry. Join our elite
             program designed for the next generation of visual storytellers.
           </p>
-          <div>
+          <div className="hero-btn-wrapper">
             <CurriculumButton 
-          imageUrl={PhotographyCurriculum} 
-          buttonText="View Curriculum"
-        />
-
-         
-
-         
-
-
+              imageUrl={PhotographyCurriculum} 
+              buttonText="View Curriculum"
+            />
           </div>
         </div>
       </section>
@@ -85,7 +119,7 @@ const Photography = () => {
         <div className="photography-grid">
           
           {/* Module 1 */}
-          <div className="photography-card photography-mod-1 animate-on-scroll">
+          <div className="photography-card photography-mod-1">
             <div className="photography-card-header">
               <span className="photography-module-tag">Module 01</span>
               <svg className="photography-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -111,7 +145,7 @@ const Photography = () => {
           </div>
 
           {/* Module 2 */}
-          <div className="photography-card photography-mod-2 animate-on-scroll">
+          <div className="photography-card photography-mod-2">
             <div className="photography-card-header">
               <span className="photography-module-tag">Module 02</span>
               <svg className="photography-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -133,7 +167,7 @@ const Photography = () => {
           </div>
 
           {/* Module 3 */}
-          <div className="photography-card photography-mod-3 animate-on-scroll">
+          <div className="photography-card photography-mod-3">
             <div className="photography-card-header">
               <span className="photography-module-tag">Module 03</span>
             </div>
@@ -144,7 +178,7 @@ const Photography = () => {
           </div>
 
           {/* Module 4 */}
-          <div className="photography-card photography-mod-4 animate-on-scroll">
+          <div className="photography-card photography-mod-4">
             <div className="photography-card-header">
               <span className="photography-module-tag">Module 04</span>
             </div>
@@ -185,18 +219,18 @@ const Photography = () => {
 
       {/* Who Is This For Section */}
       <section className="scroll-section target-section">
-        <h2 className="section-title animate-on-scroll">Who Is This <span>For?</span></h2>
-        <p className="section-subtitle animate-on-scroll">Tailored instruction for creators at every stage of their journey.</p>
+        <h2 className="section-title animate-title-3d">Who Is This <span>For?</span></h2>
+        <p className="section-subtitle animate-title-3d">Tailored instruction for creators at every stage of their journey.</p>
         <div className="cards-grid-3">
-          <div className="photography-glass-card animate-on-scroll">
+          <div className="photography-glass-card">
             <h3>Aspiring Artists</h3>
             <p>Beginners looking to build a rock-solid technical foundation and find their voice.</p>
           </div>
-          <div className="photography-glass-card animate-on-scroll">
+          <div className="photography-glass-card">
             <h3>Pivot Professionals</h3>
             <p>Commercial photographers looking to upgrade their cinematography and high-end studio skills.</p>
           </div>
-          <div className="photography-glass-card animate-on-scroll">
+          <div className="photography-glass-card">
             <h3>Content Strategists</h3>
             <p>Marketing leads who need to understand high-end production to lead creative teams effectively.</p>
           </div>
@@ -205,7 +239,7 @@ const Photography = () => {
 
       {/* CTA Section */}
       <section className="scroll-section cta-section">
-        <div className="photography-glass-card cta-box animate-on-scroll">
+        <div className="photography-glass-card cta-box">
           <h2>Ready To Master The <span>CineCombo?</span></h2>
           <p>Our exclusive hybrid training program combines high-end cinematography with strategic performance marketing insights. Spots are limited.</p>
           <div className="cta-meta">
@@ -216,15 +250,11 @@ const Photography = () => {
         </div>
       </section>
 
-      
-
       {/* Featured Courses Section */}
       <section className="scroll-section courses-section">
         <FeaturedCoursesCards/>
-         <Footer/>
+        <Footer/>
       </section>
-
-     
     </div>
   );
 };

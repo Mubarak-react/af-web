@@ -1,158 +1,187 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import './ContactUS.css'
 import CTACards from '../components/CTAcards';
 import MapsImg from '../assets/images/MapsImg.svg'
 import Footer from '../footer/Footer';
+import AfStudiosMapImg from '../assets/images/AfStudiosMapImg.svg'
 
-gsap.registerPlugin(ScrollTrigger);
 
 const ContactPage = () => {
-  const headerRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const cardGroupRef = useRef(null);
-  const skipWaitCardRef = useRef(null);
+  const containerRef = useRef(null);
+  const card1Ref = useRef(null);
+  const card2Ref = useRef(null);
 
-  useEffect(() => {
-    // 1. Initial Page Load Animation (Second screenshot text)
-    const tl = gsap.timeline();
-    tl.fromTo(
-      headerRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }
-    )
-    .fromTo(
-      subtitleRef.current,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
-      '-=0.8'
-    );
+  // Entrance Animations
+  useGSAP(() => {
+    gsap.from('.contactus-hero-title', {
+      opacity: 0,
+      y: 40,
+      duration: 1,
+      ease: 'power3.out'
+    });
 
-    // 2. Scroll Trigger Animation for Third Screenshot Cards
-    gsap.fromTo(
-      cardGroupRef.current.querySelectorAll('.glass-card'),
-      { opacity: 0, y: 60, scale: 0.95 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: cardGroupRef.current,
-          start: 'top 80%',
-          end: 'top 30%',
-          scrub: 1, // Smooth animation on scroll
-        },
-      }
-    );
+    gsap.from('.contactus-hero-subtitle', {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      delay: 0.2,
+      ease: 'power3.out'
+    });
 
-    // 3. Scroll Trigger Animation for 4th Screenshot (Skip the Wait Card)
-    gsap.fromTo(
-      skipWaitCardRef.current,
-      { opacity: 0, y: 80 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: skipWaitCardRef.current,
-          start: 'top 85%',
-          end: 'top 40%',
-          scrub: 1,
-        },
-      }
-    );
-  }, []);
+    gsap.from('.contactus-glass-card', {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 0.4,
+      stagger: 0.2,
+      ease: 'power3.out'
+    });
+  }, { scope: containerRef });
+
+  // 3D Tilt Effect Handlers
+  const handleMouseMove = (e, cardRef) => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -12;
+    const rotateY = ((x - centerX) / centerX) * 12;
+
+    gsap.to(card, {
+      rotateX: rotateX,
+      rotateY: rotateY,
+      transformPerspective: 1000,
+      duration: 0.4,
+      ease: 'power2.out'
+    });
+  };
+
+  const handleMouseLeave = (cardRef) => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    gsap.to(card, {
+      rotateX: 0,
+      rotateY: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+  };
 
   return (
-    <div className="page-container">
-      {/* Hero Section */}
-     
+    <div className="contactus-wrapper" ref={containerRef}>
+      {/* Background Glowing Lights */}
+      <div className="contactus-glow contactus-glow-left"></div>
+      <div className="contactus-glow contactus-glow-right"></div>
 
-      {/* Grid Cards Section (3rd Screenshot) */}
-      <section ref={cardGroupRef} className="grid-section">
-        {/* Left Side: Message Form Card */}
-        <div className="glass-card form-card">
-          <h2>Send a Message</h2>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div className="form-row">
-              <div className="form-group">
-                <label>FULL NAME</label>
-                <input type="text" placeholder="John Doe" />
-              </div>
-              <div className="form-group">
-                <label>EMAIL ADDRESS</label>
-                <input type="email" placeholder="john@company.com" />
-              </div>
-            </div>
-            <div className="form-group">
-              <label>SERVICE INTERESTED IN</label>
-              <select defaultValue="Cinematography & Production">
-                <option>Cinematography & Production</option>
-                <option>Cyber Storytelling</option>
-                <option>Performance Data Analytics</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>MESSAGE</label>
-              <textarea placeholder="Tell us about your project goals..."></textarea>
-            </div>
-            <button type="submit" className="action-btn">Send Mission Brief</button>
-          </form>
-        </div>
+      <div className="contactus-content-container">
+        {/* Section 1: Hero Header */}
+        <header className="contactus-hero-header">
+          <h1 className="contactus-hero-title">
+            Let's Build the <span className="contactus-highlight-text">Future Together</span>
+          </h1>
+          <p className="contactus-hero-subtitle">
+            Ready to scale your brand with cyber-cinematic storytelling and performance-driven data? Our team in Hyderabad is ready to deploy.
+          </p>
+        </header>
 
-        {/* Right Side: Info & Map Stack */}
-        <div className="info-stack">
-          <div className="glass-card contact-info-card">
-            <div className="info-item">
-              <div className="icon">📍</div>
-              <div>
-                <h3>Regional Headquarters</h3>
-                <p>VC Plaza, 1st floor, opp SBI bank <br />kukatpally, Hyderabad 500072<br />India</p>
+        {/* Section 2: Glassmorphism Contact Grid */}
+        <div className="contactus-cards-grid">
+          {/* Card 1: Location Map */}
+          <div
+            className="contactus-glass-card"
+            ref={card1Ref}
+            onMouseMove={(e) => handleMouseMove(e, card1Ref)}
+            onMouseLeave={() => handleMouseLeave(card1Ref)}
+          >
+            <h2 className="contactus-card-heading">Our location</h2>
+            <div className="contactus-map-box">
+              <div className="contactus-map-placeholder">
+                <img src={AfStudiosMapImg}/>
               </div>
-            </div>
-            <div className="info-item">
-              <div className="icon">📞</div>
-              <div>
-                <h3>Direct Lines</h3>
-                <p>+91 7661813635</p>
-              </div>
-            </div>
-            <div className="info-item">
-              <div className="icon">✉️</div>
-              <div>
-                <h3>Email Inquiries</h3>
-                <p>contact@afadagency.studio</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Dummy Map Container */}
-          <div className="map-card">
-            <div className="map-placeholder">
-              <div className="map-pins">
-                <span className="pin"></span>
-                <span className="pin"></span>
-              </div>
-<a 
+              <a 
 href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=VC+Plaza,+1st+Floor,+Opp+SBI+Bank,+Kukatpally,+Hyderabad,+Telangana"        target="_blank" 
         rel="noopener noreferrer" 
-        className="map-link"
+        className="contactus-map-btn"
       >
-        VIEW ON GOOGLE MAPS
-      </a>            </div>
+                VIEW ON GOOGLE MAPS
+              </a>
+            </div>
+          </div>
+
+          {/* Card 2: Contact Details */}
+          <div
+            className="contactus-glass-card"
+            ref={card2Ref}
+            onMouseMove={(e) => handleMouseMove(e, card2Ref)}
+            onMouseLeave={() => handleMouseLeave(card2Ref)}
+          >
+            <div className="contactus-info-list">
+              {/* Regional HQ */}
+              <div className="contactus-info-item">
+                <div className="contactus-icon-badge">
+                  <MapPin size={20} color="#7c3aed" />
+                </div>
+                <div>
+                  <h3 className="contactus-info-title">Regional Headquarters</h3>
+                  <p className="contactus-info-desc">
+                    1st Floor, VC Plaza, Opp SBI Bank, Vivek Nagar<br />
+                    Kukatpally, Hyderabad, 500072.
+                  </p>
+                </div>
+              </div>
+
+              {/* Direct Lines */}
+              <div className="contactus-info-item">
+                <div className="contactus-icon-badge">
+                  <Phone size={20} color="#6366f1" />
+                </div>
+                <div>
+                  <h3 className="contactus-info-title">Direct Lines</h3>
+                  <p className="contactus-info-desc">+91 7661813635</p>
+                  <p className="contactus-info-desc">+91 7396526974</p>
+                </div>
+              </div>
+
+              {/* Email Inquiries */}
+              <div className="contactus-info-item">
+                <div className="contactus-icon-badge">
+                  <Mail size={20} color="#3b82f6" />
+                </div>
+                <div>
+                  <h3 className="contactus-info-title">Email Inquiries</h3>
+                  <p className="contactus-info-desc">contact@afadgency.com</p>
+                  <p className="contactus-info-desc">hrteam@afadgency.com</p>
+                </div>
+              </div>
+
+              {/* Office Hours */}
+              <div className="contactus-info-item">
+                <div className="contactus-icon-badge">
+                  <Clock size={20} color="#06b6d4" />
+                </div>
+                <div>
+                  <h3 className="contactus-info-title">Office Hours</h3>
+                  <p className="contactus-info-desc">Monday to Friday: 9 AM - 6 PM</p>
+                  <p className="contactus-info-desc">Saturday: 10 AM - 4 PM</p>
+                </div>
+              </div>
+
+            </div>
+            
           </div>
         </div>
-      </section>
-
-      {/* Skip The Wait Section (4th Screenshot Custom Card) */}
-   
-
-      <CTACards 
+        
+                    <CTACards 
         title="Want To Skip"
         spanText="The Wait?"
         description="Book a direct 1-on-1 strategy call with our Creative Director to discuss your brand's trajectory."
@@ -162,11 +191,10 @@ href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=VC+P
       />
 
       <Footer/>
+      </div>
+
     </div>
   );
 };
 
 export default ContactPage;
-
-
-

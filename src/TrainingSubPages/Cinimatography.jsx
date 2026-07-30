@@ -10,7 +10,8 @@ import StudioSetup from '../assets/images/Studio Setup.svg'
 import CurriculumButton from '../components/CurriculumButton'
 import Footer from '../footer/Footer';
 import CinimatographyCurriculum from '../assets/images/CINEMATOGRAPHY BROCHER AF STUDIOS 1.tif 1.svg'
-
+import CTACards from '../components/CTAcards'
+import CameraOperations from '../assets/images/Camera Operations.svg'
 gsap.registerPlugin(ScrollTrigger);
 
 const Cinimatography = () => {
@@ -116,7 +117,7 @@ const Cinimatography = () => {
                 </p>
               </div>
               <div className="embedded-preview-media">
-                <img src="image_acc882.png" alt="Director setting camera values configuration matrix mapping metrics" />
+                <img src={CameraOperations} alt="Director setting camera values configuration matrix mapping metrics" />
               </div>
             </div>
 
@@ -187,16 +188,15 @@ const Cinimatography = () => {
         </section>
 
         {/* SECTION 4: CALL TO ACTION DESIGN WRAPPER BLOCK */}
-        <section className="training-viewport-section scroll-replay-section" style={{ display: 'block' }}>
-          <div className="training-glass-card cta-box-center scroll-reveal-node">
-            <h2>Your Future In Cinema <span className="text-neon-gradient">Starts Today.</span></h2>
-            <p>Limited seats available for the upcoming cohort. Join the next generation of visual storytellers and master the craft of cinematic excellence.</p>
-            <div className="flex-btn-wrap" style={{ justifyContent: 'center' }}>
-              <button className="btn-primary-gradient">Book Your Seat</button>
-              <button className="btn-secondary-outline">Download Brochure</button>
-            </div>
-          </div>
-        </section>
+        
+
+         <CTACards 
+        title="Your Future In Cinema"
+        spanText="Start Today"
+        description="Limited seats available for the upcoming cohort. Join the next generation of visual storytellers and master the craft of cinematic excellence."
+        btnText="Download Brochure"
+     
+      />
  
         <FeaturedCoursesCards/>
         <Footer/>

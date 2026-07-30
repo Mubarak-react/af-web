@@ -7,7 +7,7 @@ import CTACards from '../components/CTAcards'
 import Footer from '../footer/Footer'
 gsap.registerPlugin(ScrollTrigger);
 
-const CommercialAd = () => {
+const CommercialAds = () => {
   const containerRef = useRef(null);
 
   // useEffect ప్లేస్‌లో useGSAP వాడాలి. ఇది డబుల్ రెండరింగ్ ఇష్యూని ఫిక్స్ చేస్తుంది.
@@ -47,16 +47,16 @@ const CommercialAd = () => {
 
     // 3. Process Steps Scroll Animation
     gsap.from('.dm-process-step', {
-      scrollTrigger: {
-        trigger: '.dm-process-list',
-        start: 'top bottom-=100px',
-      },
-      x: -40,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: 'power2.out'
-    });
+  scrollTrigger: {
+    trigger: '.dm-process-list',
+    start: 'top bottom-=100px',
+  },
+  y: 30, // x: -40 బదులు y వ్రాస్తే లెఫ్ట్‌కి వెళ్ళిపోదు
+  opacity: 0,
+  duration: 0.8,
+  stagger: 0.2,
+  ease: 'power2.out'
+});
 
     // 4. Why Choose Us Animation
     gsap.from('.dm-choose-card', {
@@ -81,11 +81,14 @@ const CommercialAd = () => {
         {/* Hero Section */}
         <header className="dm-hero-section">
           <div className="dm-hero-left">
-            <span className="dm-badge">🎬 Commercial Ad Production Services</span>
-            <h1> At AF AD Agency, we specialize in creating high-impact ad films that tell your brand’s story and capture your audience’s attention.            </h1>
-            
-            <p className="dm-sub-text">
- As a leading ad film production house in Hyderabad, we combine creativity, strategy, and technical expertise to craft engaging videos. From product advertisements to brand awareness campaigns, our team ensures each film resonates with your target audience.            </p>
+            <span className="dm-badge">Commercial Ad Production Services</span>
+            <h1 style={{fontSize: '40px'}}>At AF AD Agency, we specialize in creating high-impact ad films that tell your brand’s story and capture your audience’s attention.</h1>
+            <p className="dm-lead-text">
+              As a leading ad film production house in Hyderabad, we combine creativity, strategy, and technical expertise to craft engaging videos. From product advertisements to brand awareness campaigns, our team ensures each film resonates with your target audience.
+            </p>
+            {/* <p className="dm-sub-text">
+              As a leading ad film production house in Hyderabad, we combine creativity, strategy, and technical expertise to craft engaging videos. From product advertisements to brand awareness campaigns, our team ensures each film resonates with your target audience.
+            </p> */}
             <button className="dm-hero-btn">Connect Now</button>
           </div>
           
@@ -100,7 +103,7 @@ const CommercialAd = () => {
 
         {/* Services Section */}
         <section className="dm-section">
-          <h2 className="dm-section-title">🎥 Types of Ad Films We Create</h2>
+          <h2 className="dm-section-title">Types of Ad Films We Create</h2>
           <div className="dm-services-grid">
             <div className="dm-service-card">
               <h3>TV Commercials</h3>
@@ -108,7 +111,7 @@ const CommercialAd = () => {
             </div>
             <div className="dm-service-card">
               <h3>Social Media Ads</h3>
-               <p>Visually stunning, concise, and impactful ads optimized for platforms like Facebook, Instagram stories, or YouTube videos to ensure your brand stands out.</p>
+              <p>Visually stunning, concise, and impactful ads optimized for platforms like Facebook, Instagram and YouTube to ensure your brand stands out.</p>
             </div>
             <div className="dm-service-card">
               <h3>OTT Ads</h3>
@@ -123,53 +126,56 @@ const CommercialAd = () => {
 
         {/* Process Section */}
         <section className="dm-section">
-          <h2 className="dm-section-title">🛠️ Our Ad Film Production Process</h2>
+          <h2 className="dm-section-title">Our Commercial Ad Process</h2>
           <div className="dm-process-list">
             <div className="dm-process-step">
               <span className="dm-step-idx">1</span>
               <div>
-                  <h3>Concept & Creative Development</h3>
-                   <p>We collaborate closely with you to understand your brand’s message, goals, and audience to brainstorm a unique creative concept.</p>
+                <h3>Research & Strategy</h3>
+                <p>We analyze your business objectives, market trends, and competitor landscapes to build a tailored roadmap.</p>
               </div>
             </div>
             <div className="dm-process-step">
               <span className="dm-step-idx">2</span>
               <div>
-                <h3>Filming & Production</h3>
-                <p>Handling everything from location scouting and casting to high-quality filming using state-of-the-art production equipment.</p>
+                <h3>Execution & Campaign Management</h3>
+                <p>Deploying highly targeted creative assets, copy, and structural workflows across digital platforms.</p>
               </div>
             </div>
             <div className="dm-process-step">
               <span className="dm-step-idx">3</span>
               <div>
-                <h3>Post-Production & Final Touches</h3>
-                <p>Adding sound, music, voiceovers, motion graphics, and visual effects to deliver broadcast-quality videos optimized for platforms.</p>
+                <h3>Optimization & Reporting</h3>
+                <p>Continuously measuring key performance metrics to refine campaigns, boost engagement, and maximize your ROI.</p>
               </div>
             </div>
           </div>
         </section>
 
         <section className="dm-section">
-          <h2 className="dm-section-title">🌟 Why Choose Us for Commercial Ads ?</h2>
+          <h2 className="dm-section-title">🌟 Why Choose Us for Commercial Ads</h2>
           <div className="dm-choose-grid">
             <div className="dm-choose-card">
-               <h3>Experienced Creative Crew</h3>
-              <p>Years of proven expertise in crafting live-action and animated promotional content.</p> </div>
+              <h3>Holistic Approach</h3>
+              <p>Integrating SEO, social media, and content for unified brand communication.</p>
+            </div>
             <div className="dm-choose-card">
-             <h3>End-to-End Solutions</h3>
-              <p>From initial ideation and scriptwriting to the final post-production delivery.</p>
-             </div>
+              <h3>Experienced Professionals</h3>
+              <p>A creative team backed by years of digital industry expertise.</p>
+            </div>
             <div className="dm-choose-card">
-               <h3>Result-Driven Content</h3>
-              <p>Videos designed intentionally to scale your brand identity, boost engagement, and maximize conversions.</p> </div>
+              <h3>Results-Oriented</h3>
+              <p>Focused purely on driving genuine traffic, solid leads, and sustainable conversions.</p>
+            </div>
           </div>
         </section>
 
         {/* Bottom CTA Box */}
         
-        <CTACards 
-          title="Ready to bring your brand to"
-          spanText="life?"
+        
+           <CTACards 
+          title="Ready to scale your online"
+          spanText="presence?"
           btnText="Connect Now"
           
         />
@@ -180,4 +186,4 @@ const CommercialAd = () => {
   );
 };
 
-export default CommercialAd;
+export default CommercialAds;

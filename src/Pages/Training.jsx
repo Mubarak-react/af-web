@@ -78,8 +78,8 @@ const Training = () => {
                 Master industry-standard tools and techniques with our practical hands-on training courses led by experts. Elevate your creative vision to professional production standards.
               </p>
               <div className="btn-row-flex hero-load-node">
-                <button className="action-gradient-btn">Enroll in the Bundle &rarr;</button>
-                <button className="secondary-outline-btn">View Curriculum</button>
+                <button className="action-gradient-btn">View Curriculum</button>
+                
               </div>
             </div>
 

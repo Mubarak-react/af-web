@@ -10,27 +10,54 @@ const CTACards = ({ title, spanText, description, btnText, phoneNumber, btnText2
 
   useEffect(() => {
     const element = ctaRef.current;
+    if (!element) return;
     
+    // Set 3D perspective context directly onto the component wrapper
+    gsap.set(element, { transformPerspective: 1200 });
+
+    // 3D Matrix Pop-up with a sleek back bounce ease
     const anim = gsap.fromTo(element, 
       { 
         opacity: 0, 
-        y: 60 
+        y: 100,
+        rotationX: -25,
+        scale: 0.9
       },
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        rotationX: 0,
+        scale: 1,
+        duration: 1,
+        ease: 'back.out(1.5)',
+        scrollTrigger: {
+          trigger: element,
+          start: "top 88%", 
+          toggleActions: "play none none reverse", 
+        }
+      }
+    );
+
+    // Stagger animation on the text content inside the CTA card
+    const elementsToStagger = element.querySelectorAll('.cta-headline-title, .cta-sub-message, .cta-actions-row, .cta-sub-message2');
+    const childAnim = gsap.fromTo(elementsToStagger,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.12,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: element,
-          start: "top 85%", 
-          toggleActions: "play none none reverse", 
+          start: "top 85%",
         }
       }
     );
 
     return () => {
       if (anim.scrollTrigger) anim.scrollTrigger.kill();
+      if (childAnim.scrollTrigger) childAnim.scrollTrigger.kill();
     };
   }, []);
 
