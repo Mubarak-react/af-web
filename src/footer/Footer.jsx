@@ -52,7 +52,7 @@ const Footer = () => {
         {/* Column 1: Brand Info */}
         <div className="footer-col brand-info-col">
           <div className="footer-logo-box">
-          <img className='Aflogo-Footer' src={Aflogo}/>
+          <img className='Aflogo-Footer' src={Aflogo} alt='af logo'/>
           </div>
           <p className="brand-brief-text">
             Leading Commercial Ad Agency & Digital Marketing Company based in Hyderabad. We transform brands through creative visual storytelling.
@@ -63,10 +63,10 @@ const Footer = () => {
         <div className="footer-col">
           <h4 className="footer-col-title">Quick Links</h4>
           <ul className="footer-links-list">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#training">Training Programs</a></li>
-            <li><a href="#cinecombo">Cine Combo</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li>Services</li>
+            <li>Training Programs</li>
+            <li>Cine Combo</li>
+            <li>Portfolio</li>
           </ul>
         </div>
 
@@ -74,10 +74,10 @@ const Footer = () => {
         <div className="footer-col">
           <h4 className="footer-col-title">Services</h4>
           <ul className="footer-links-list">
-            <li><a href="#ad-prod">Ad Production</a></li>
-            <li><a href="#seo">SEO Services</a></li>
-            <li><a href="#meta">Meta Ads</a></li>
-            <li><a href="#editing">Video Editing</a></li>
+            <li>Ad Production</li>
+            <li>SEO Services</li>
+            <li>Meta Ads</li>
+            <li>Video Editing</li>
           </ul>
         </div>
 
@@ -98,10 +98,10 @@ const Footer = () => {
          <div className='bottom-text'>
             <p className="copyright-text">© 2024 AF Ad Agency & Studios. All Rights Reserved.</p>
                      <div className='footer-social-links'>
-                      <a href='#'>Instagram</a>
-                <a href='#'>Facebook</a>
-                <a href='#'>LinkedIn</a>
-                <a href='#'>YouTube</a>
+                      <p>Instagram</p>
+                <p >Facebook</p>
+                <p>LinkedIn</p>
+                <p>YouTube</p>
                      </div>
           
           </div>  
