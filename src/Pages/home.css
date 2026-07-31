@@ -23,18 +23,27 @@
   width: 100%;
 }
 
+
+.home-split-hero-layout{
+  display: flex;
+
+}
 .home-hero-image-wrapper {
   flex: 0.8;
-  display: flex;
+
   justify-content: flex-end;
 }
 
-
-.heroImage{
-  margin-top:-170px ;
-  margin-right:-100px ;
+.homePage-image{
+  width: 100%;
+  max-width: 594px;
+  height: auto;
+  max-height: 500px;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+  border: none;
 }
-
 
 
 .slide-section {
@@ -48,13 +57,7 @@
  
 }
 
-.home-hero-page-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 80px 20px;
-  width: 100%;
-}
+
 
 /* ==========================================
    Slide 1 - Hero Section
@@ -84,7 +87,7 @@
   letter-spacing: 1px;
   display: inline-block;
   margin-bottom: 15px;
-  margin-top: 20px;
+ 
   border: 1px solid rgba(168, 85, 247, 0.3);
   color: #a855f7;
 }
@@ -159,6 +162,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(122, 34, 255, 0.1);
+  
 }
 
 .home-call-btn a {
@@ -232,13 +236,28 @@
 }
 
 .home-heading{
-  margin-top: 30px;
+  
    font-size: 50px;
-   margin-bottom: 60px;
+   margin-bottom: 40px;
 
 
 
 }
+
+.HomePage-image {
+  width: 100%;
+  max-width: 594px;
+  height: auto;
+  max-height: 500px;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+  border: none;
+  margin-top: 40px;
+}
+
+
+
 
 /* ==========================================
    Slide 2 - Stats Section
@@ -1050,6 +1069,10 @@
 /* --- MOBILE LAYOUTS (Max Width: 768px) --- */
 @media screen and (max-width: 768px) {
 
+  .hero-tagline {
+    margin-top: 40px;
+  }
+
   .home-bg-container {
   height: 120vh;
   
@@ -1063,13 +1086,6 @@
 
 
 
-.home-call-btn{
-  width:100%;
-}
-  .slide-section {
-    padding: 60px 20px;
-    min-height: auto; /* Allow natural heights on mobile cards */
-  }
 
   .hero-container {
     flex-direction: column-reverse; /* Text goes under the vector illustration */
@@ -1109,9 +1125,7 @@
     padding: 20px 24px;  /* చిన్న స్క్రీన్స్ లోపల టెక్స్ట్ కి తగినట్టు ప్యాడింగ్ తగ్గించాం */
   }
 
-  .Our-Services-cards{
-    margin-top: -400px;
-  }
+ 
 
   .stat-item h2 {
     font-size: 28px;
@@ -1155,5 +1169,3 @@
     font-size: 1rem;
   }
 }
-
-

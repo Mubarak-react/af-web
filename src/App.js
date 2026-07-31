@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import Services from "./Pages/Services";
 import Portfolio from "./Pages/Portfolio";
-import Training from "./Pages/Training";
+import TrainingPage from "./Pages/TrainingPage";
 import ContactUS from "./Pages/ContactUS";
 import AboutUs from "./Pages/AboutUs"
 import Cinimatography from './TrainingSubPages/Cinimatography';
@@ -44,7 +44,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/training" element={<Training />} />
+        <Route path="/TrainingPage" element={<TrainingPage />} />
         <Route path="/contact" element={<ContactUS/>}/>
         <Route path="/about" element={<AboutUs/>} />
         <Route path="/Cinimatography" element={<Cinimatography/>} />

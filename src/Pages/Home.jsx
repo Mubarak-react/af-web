@@ -353,28 +353,71 @@ function Home() {
       ></div>
 
       <main>
-        <section className="home-hero-page-section">
-          <div className="split-hero-layout">
-            <div className="hero-content-left" ref={heroTextRef}>
-              <span className="hero-tagline">Welcome to AF Ad agency & studios</span>
-              <h1 className='home-heading' ref={heroTitleRef}>
+       
+
+
+
+
+
+  <div className="AboutUSheader-container">
+      
+      {/* Left Content Side */}
+      <div className="AboutUSheader-leftSide" ref={heroTextRef}>
+        <span className="hero-tagline">Welcome to AF Ad agency & studios</span>
+        
+        <h1 className='home-heading' ref={heroTitleRef}>
                 {titles[textIndex]}
               </h1>
-              <div className="hero-buttons">
+        
+        <div className="hero-buttons">
                 {/* <button className="btn-primary">View Our Portfolio</button> */}
                 <button className="home-call-btn">
                   <a href="tel:+91 7661813635">Contact Us</a>
                 </button>
               </div>
-            </div>
+        
+        
+      </div>
 
-            <div className="hero-media-right hero-load-node" ref={heroImgRef}>
-            
-                <img className='AboutUSheader-image' src={AboutUSheaderImg} alt="Cinematographer operating premium cinema camera rig" />
-             
-            </div>
-          </div>
-        </section>
+      {/* Right Image/Studio Preview Side */}
+      <div className="HomePage-rightSide">
+        <div  ref={heroImgRef}>
+          {/* Replace with your actual studio image source */}
+          <img 
+            src={AboutUSheaderImg}
+            alt="Studio Setup" 
+            className='HomePage-image'
+           
+          />
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
         <div className="hero-glass-card-info hero-load-node">
           <p className="hero-paragraph-desc-glass">
